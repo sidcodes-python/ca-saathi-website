@@ -8,11 +8,19 @@
     "category": "compliance"
   },
   {
-    "id": "tax-audit-automator",
-    "name": "Tax Audit Automator",
-    "description": "Streamline Form 3CD preparation with automated clause-wise data extraction and validation from trial balance and financial statements.",
-    "version": "2.0.1",
-    "downloadUrl": "https://github.com/ca-saathi/tax-audit-automator/releases/latest/download/Tax-Audit-Automator.exe",
+    "id": "file-saathi",
+    "name": "File Saathi",
+    "description": "Offline PDF manipulation tool for merge, split, protect, unlock, and audit-safe document handling. All processing happens locally on your machine.",
+    "version": "1.0.0",
+    "downloadUrl": "https://github.com/sidcodes-python/file-saathi/releases/latest",
+    "category": "compliance"
+  },
+  {
+    "id": "26as-analyzer",
+    "name": "26AS Analyzer",
+    "description": "Reads and analyzes .txt 26AS files downloaded from TRACES. Generates clean, structured reports for TDS reconciliation and tax credit verification.",
+    "version": "1.0.0",
+    "downloadUrl": "https://github.com/ca-saathi/26as-analyzer/releases/latest",
     "category": "audit"
   }
 ]

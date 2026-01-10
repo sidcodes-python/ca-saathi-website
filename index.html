@@ -1,33 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="CA Saathi - A professional toolkit ecosystem for Chartered Accountancy students. Download audit, tax, and compliance tools.">
+  <meta name="description"
+    content="CA Saathi - A professional toolkit ecosystem for Chartered Accountancy students. Download audit, tax, and compliance tools.">
   <meta name="keywords" content="CA tools, chartered accountancy, audit tools, tax automation, 26AS analyzer">
   <meta name="author" content="CA Saathi">
-  
+
   <title>CA Saathi - Toolkit Ecosystem for CA Students</title>
-  
+
   <!-- Favicon placeholder -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
-  
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
+
   <!-- Google Fonts - Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  
+
   <!-- Stylesheet -->
   <link rel="stylesheet" href="./assets/css/style.css">
 </head>
+
 <body>
   <div class="app-container">
-    
+
     <!-- Mobile Header -->
     <header class="mobile-header">
       <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu">
         <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
       </button>
       <span class="mobile-logo">CA Saathi</span>
@@ -54,39 +58,60 @@
           <div class="nav-section-title">Navigation</div>
           <a href="./index.html" class="nav-item active">
             <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
             </svg>
             Home
           </a>
           <a href="./pages/privacy.html" class="nav-item">
             <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
             </svg>
-            Privacy Shield
+            Our Policy- Privacy First
           </a>
         </div>
 
-        <div class="nav-section">
-          <div class="nav-section-title">Tools</div>
-          <a href="./index.html#tools" class="nav-item">
+        <div class="nav-section-header">Our Tools for-</div>
+
+        <div class="nav-section compact">
+          <div class="nav-section-title">Compliance</div>
+          <a href="./pages/compliance.html" class="nav-item">
             <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
             </svg>
-            Privacy Shield Tool
+            View All
           </a>
-          <a href="./index.html#tools" class="nav-item">
+        </div>
+
+        <div class="nav-section compact">
+          <div class="nav-section-title">Audit</div>
+          <a href="./pages/audit.html" class="nav-item">
             <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
             </svg>
-            Tax Audit Automator
+            View All
           </a>
+        </div>
+
+        <div class="nav-section compact">
+          <div class="nav-section-title">Tax</div>
+          <span class="nav-item" style="color: var(--color-text-muted); cursor: default;">
+            <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+            </svg>
+            Coming Soon
+          </span>
         </div>
 
         <div class="nav-section">
           <div class="nav-section-title">Community</div>
           <a href="./pages/community.html" class="nav-item">
             <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
             </svg>
             Community Hub
           </a>
@@ -101,7 +126,7 @@
     <!-- Main Content -->
     <main class="main-content">
       <div class="main-inner">
-        
+
         <!-- Page Header -->
         <header class="page-header">
           <h1 class="page-title">Welcome to CA Saathi</h1>
@@ -114,21 +139,58 @@
         <section class="hero-section">
           <h2 class="hero-title">Your Professional Toolkit Ecosystem</h2>
           <p class="hero-description">
-            CA Saathi provides reliable, offline-first tools for audit, tax, and compliance workflows. 
+            CA Saathi provides reliable, offline-first tools for audit, tax, and compliance workflows.
             All tools are free, open-source, and designed with privacy in mind. No data ever leaves your computer.
           </p>
         </section>
 
-        <!-- Tools Section -->
+        <!-- Browse Tools Section -->
         <section id="tools" aria-labelledby="tools-heading">
-          <h2 id="tools-heading" class="sr-only">Available Tools</h2>
-          
-          <!-- Tools will be dynamically loaded from tools.json -->
-          <div class="tools-grid" id="toolsContainer">
-            <!-- Loading state will appear here -->
-            <div class="tools-loading">
-              <div class="loading-spinner"></div>
-              <span>Loading tools...</span>
+          <h2 id="tools-heading"
+            style="font-size: var(--font-size-xl); font-weight: 600; margin-bottom: var(--spacing-lg);">Browse Our Tools
+          </h2>
+
+          <div class="tools-grid">
+            <!-- Compliance Card -->
+            <a href="./pages/compliance.html" class="tool-card" style="text-decoration: none;">
+              <header class="tool-card-header">
+                <h3 class="tool-card-title">Compliance Tools</h3>
+                <span class="tool-card-category compliance">2 Tools</span>
+              </header>
+              <p class="tool-card-description">Privacy Shield, File Saathi - Tools for data protection, document
+                redaction, and secure file handling.</p>
+              <footer class="tool-card-footer">
+                <span class="tool-card-version">For data privacy & protection</span>
+                <span class="btn btn-secondary">View All →</span>
+              </footer>
+            </a>
+
+            <!-- Audit Card -->
+            <a href="./pages/audit.html" class="tool-card" style="text-decoration: none;">
+              <header class="tool-card-header">
+                <h3 class="tool-card-title">Audit Tools</h3>
+                <span class="tool-card-category audit">1 Tool</span>
+              </header>
+              <p class="tool-card-description">26AS Analyzer - Tools for TDS reconciliation, financial statement
+                analysis, and audit workflows.</p>
+              <footer class="tool-card-footer">
+                <span class="tool-card-version">For audit & reconciliation</span>
+                <span class="btn btn-secondary">View All →</span>
+              </footer>
+            </a>
+
+            <!-- Tax Card -->
+            <div class="tool-card" style="opacity: 0.7;">
+              <header class="tool-card-header">
+                <h3 class="tool-card-title">Tax Tools</h3>
+                <span class="tool-card-category tax">Coming Soon</span>
+              </header>
+              <p class="tool-card-description">Tax computation, ITR preparation, and tax planning tools are currently in
+                development.</p>
+              <footer class="tool-card-footer">
+                <span class="tool-card-version">For tax computation & filing</span>
+                <span class="btn btn-secondary" style="opacity: 0.5; cursor: not-allowed;">Coming Soon</span>
+              </footer>
             </div>
           </div>
         </section>
@@ -137,10 +199,12 @@
         <section class="mt-lg">
           <div class="info-box info">
             <svg class="info-box-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
             <span class="info-box-text">
-              All tools are downloaded directly from GitHub Releases. They run entirely offline on your computer with no internet connection required after download.
+              All tools are downloaded directly from GitHub Releases. They run entirely offline on your computer with no
+              internet connection required after download.
             </span>
           </div>
         </section>
@@ -162,4 +226,5 @@
   <!-- JavaScript -->
   <script src="./assets/js/app.js"></script>
 </body>
+
 </html>
