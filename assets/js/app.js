@@ -1,0 +1,325 @@
+/**
+ * CA Saathi - Main Application JavaScript
+ * 
+ * This file handles:
+ * 1. Sidebar navigation and mobile menu toggle
+ * 2. Dynamic tool card rendering from tools.json
+ * 3. Active navigation state management
+ * 
+ * No external dependencies required.
+ */
+
+(function() {
+  'use strict';
+
+  // ============================================
+  // Configuration
+  // ============================================
+  
+  /**
+   * Path to tools.json file
+   * Adjust this path based on your deployment structure
+   */
+  const TOOLS_JSON_PATH = getToolsJsonPath();
+
+  /**
+   * Determine the correct path to tools.json based on current page location
+   * @returns {string} Path to tools.json
+   */
+  function getToolsJsonPath() {
+    // Check if we're in a subdirectory (like /pages/)
+    const path = window.location.pathname;
+    if (path.includes('/pages/')) {
+      return '../tools.json';
+    }
+    return './tools.json';
+  }
+
+  // ============================================
+  // DOM Elements
+  // ============================================
+  
+  const sidebar = document.getElementById('sidebar');
+  const sidebarOverlay = document.getElementById('sidebarOverlay');
+  const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+  const toolsContainer = document.getElementById('toolsContainer');
+
+  // ============================================
+  // Sidebar Navigation
+  // ============================================
+
+  /**
+   * Toggle sidebar visibility on mobile devices
+   */
+  function toggleSidebar() {
+    if (sidebar && sidebarOverlay) {
+      sidebar.classList.toggle('open');
+      sidebarOverlay.classList.toggle('open');
+      document.body.style.overflow = sidebar.classList.contains('open') ? 'hidden' : '';
+    }
+  }
+
+  /**
+   * Close sidebar (for mobile)
+   */
+  function closeSidebar() {
+    if (sidebar && sidebarOverlay) {
+      sidebar.classList.remove('open');
+      sidebarOverlay.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  }
+
+  /**
+   * Set active navigation item based on current page
+   */
+  function setActiveNavItem() {
+    const currentPath = window.location.pathname;
+    const navItems = document.querySelectorAll('.nav-item');
+
+    navItems.forEach(item => {
+      item.classList.remove('active');
+      
+      const href = item.getAttribute('href');
+      if (!href) return;
+
+      // Normalize paths for comparison
+      const normalizedHref = href.replace(/^\.\.\//, '').replace(/^\.\//, '');
+      const normalizedPath = currentPath.replace(/^\//, '');
+
+      // Check for exact match or index page
+      if (
+        currentPath.endsWith(normalizedHref) ||
+        (normalizedHref === 'index.html' && (currentPath === '/' || currentPath.endsWith('/'))) ||
+        normalizedPath.endsWith(normalizedHref)
+      ) {
+        item.classList.add('active');
+      }
+    });
+  }
+
+  // ============================================
+  // Tool Cards Rendering
+  // ============================================
+
+  /**
+   * Fetch tools data from JSON file
+   * @returns {Promise<Array>} Array of tool objects
+   */
+  async function fetchTools() {
+    try {
+      const response = await fetch(TOOLS_JSON_PATH);
+      
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      
+      const tools = await response.json();
+      return tools;
+    } catch (error) {
+      console.error('Error fetching tools:', error);
+      return [];
+    }
+  }
+
+  /**
+   * Create HTML for a single tool card
+   * @param {Object} tool - Tool data object
+   * @returns {string} HTML string for the tool card
+   */
+  function createToolCard(tool) {
+    const categoryClass = tool.category || 'compliance';
+    
+    return `
+      <article class="tool-card" data-tool-id="${escapeHtml(tool.id)}">
+        <header class="tool-card-header">
+          <h3 class="tool-card-title">${escapeHtml(tool.name)}</h3>
+          <span class="tool-card-category ${categoryClass}">${escapeHtml(tool.category)}</span>
+        </header>
+        <p class="tool-card-description">${escapeHtml(tool.description)}</p>
+        <footer class="tool-card-footer">
+          <span class="tool-card-version">Version ${escapeHtml(tool.version)}</span>
+          <a href="${escapeHtml(tool.downloadUrl)}" 
+             class="btn btn-primary" 
+             target="_blank" 
+             rel="noopener noreferrer"
+             aria-label="Download ${escapeHtml(tool.name)}">
+            <svg class="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+            </svg>
+            Download Tool
+          </a>
+        </footer>
+      </article>
+    `;
+  }
+
+  /**
+   * Render loading state in tools container
+   */
+  function renderLoadingState() {
+    if (!toolsContainer) return;
+    
+    toolsContainer.innerHTML = `
+      <div class="tools-loading">
+        <div class="loading-spinner"></div>
+        <span>Loading tools...</span>
+      </div>
+    `;
+  }
+
+  /**
+   * Render empty state when no tools are available
+   */
+  function renderEmptyState() {
+    if (!toolsContainer) return;
+    
+    toolsContainer.innerHTML = `
+      <div class="empty-state">
+        <svg class="empty-state-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+        </svg>
+        <h3 class="empty-state-title">No tools available</h3>
+        <p class="empty-state-text">Check back soon for new toolkit additions.</p>
+      </div>
+    `;
+  }
+
+  /**
+   * Render error state when tools fail to load
+   * @param {string} message - Error message to display
+   */
+  function renderErrorState(message) {
+    if (!toolsContainer) return;
+    
+    toolsContainer.innerHTML = `
+      <div class="info-box warning">
+        <svg class="info-box-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+        </svg>
+        <span class="info-box-text">${escapeHtml(message)}</span>
+      </div>
+    `;
+  }
+
+  /**
+   * Render all tool cards in the container
+   * @param {Array} tools - Array of tool objects
+   */
+  function renderTools(tools) {
+    if (!toolsContainer) return;
+
+    if (!tools || tools.length === 0) {
+      renderEmptyState();
+      return;
+    }
+
+    const toolCardsHtml = tools.map(tool => createToolCard(tool)).join('');
+    toolsContainer.innerHTML = toolCardsHtml;
+  }
+
+  /**
+   * Initialize tools section - fetch and render tools
+   */
+  async function initializeTools() {
+    if (!toolsContainer) return;
+
+    renderLoadingState();
+
+    try {
+      const tools = await fetchTools();
+      renderTools(tools);
+    } catch (error) {
+      console.error('Failed to initialize tools:', error);
+      renderErrorState('Unable to load tools. Please refresh the page.');
+    }
+  }
+
+  // ============================================
+  // Utility Functions
+  // ============================================
+
+  /**
+   * Escape HTML special characters to prevent XSS
+   * @param {string} text - Text to escape
+   * @returns {string} Escaped text
+   */
+  function escapeHtml(text) {
+    if (typeof text !== 'string') return '';
+    
+    const escapeMap = {
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#039;'
+    };
+    
+    return text.replace(/[&<>"']/g, char => escapeMap[char]);
+  }
+
+  // ============================================
+  // Event Listeners
+  // ============================================
+
+  /**
+   * Initialize all event listeners
+   */
+  function initializeEventListeners() {
+    // Mobile menu toggle
+    if (mobileMenuBtn) {
+      mobileMenuBtn.addEventListener('click', toggleSidebar);
+    }
+
+    // Close sidebar when clicking overlay
+    if (sidebarOverlay) {
+      sidebarOverlay.addEventListener('click', closeSidebar);
+    }
+
+    // Close sidebar when pressing Escape key
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        closeSidebar();
+      }
+    });
+
+    // Close sidebar when window is resized above mobile breakpoint
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768) {
+        closeSidebar();
+      }
+    });
+  }
+
+  // ============================================
+  // Initialization
+  // ============================================
+
+  /**
+   * Main initialization function
+   * Called when DOM is fully loaded
+   */
+  function initialize() {
+    // Set active navigation item
+    setActiveNavItem();
+
+    // Initialize event listeners
+    initializeEventListeners();
+
+    // Initialize tools if container exists (only on home page)
+    initializeTools();
+
+    console.log('CA Saathi initialized successfully');
+  }
+
+  // Run initialization when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initialize);
+  } else {
+    initialize();
+  }
+
+})();

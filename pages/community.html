@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="CA Saathi Community Hub - Submit feedback, report bugs, propose new tools, or contribute your own creations.">
+    <meta name="keywords" content="CA Saathi community, feedback, tool submission, CA tools contribution">
+    <meta name="author" content="CA Saathi">
+
+    <title>Community Hub - CA Saathi</title>
+
+    <!-- Favicon placeholder -->
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
+
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body>
+    <div class="app-container">
+
+        <!-- Mobile Header -->
+        <header class="mobile-header">
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu">
+                <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+            <span class="mobile-logo">CA Saathi</span>
+            <div style="width: 40px;"></div>
+        </header>
+
+        <!-- Sidebar Overlay (mobile) -->
+        <div class="sidebar-overlay" id="sidebarOverlay" aria-hidden="true"></div>
+
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar" id="sidebar" role="navigation" aria-label="Main navigation">
+            <div class="sidebar-header">
+                <div class="sidebar-logo">
+                    <div class="sidebar-logo-icon" aria-hidden="true">CA</div>
+                    <div>
+                        <div class="sidebar-logo-text">CA Saathi</div>
+                        <div class="sidebar-logo-tagline">Toolkit Ecosystem</div>
+                    </div>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title">Navigation</div>
+                    <a href="../index.html" class="nav-item">
+                        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                        </svg>
+                        Home
+                    </a>
+                    <a href="./privacy.html" class="nav-item">
+                        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                        Privacy Shield
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <div class="nav-section-title">Tools</div>
+                    <a href="../index.html#tools" class="nav-item">
+                        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                        Privacy Shield Tool
+                    </a>
+                    <a href="../index.html#tools" class="nav-item">
+                        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                        </svg>
+                        Tax Audit Automator
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <div class="nav-section-title">Community</div>
+                    <a href="./community.html" class="nav-item active">
+                        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                        Community Hub
+                    </a>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <p class="sidebar-footer-text">Built for CA Students</p>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="main-inner">
+
+                <!-- Page Header -->
+                <header class="page-header">
+                    <h1 class="page-title">Community Hub</h1>
+                    <p class="page-subtitle">
+                        Your feedback shapes CA Saathi. Report issues, suggest improvements, or share tools you've built
+                        for the CA community.
+                    </p>
+                </header>
+
+                <!-- Info Box -->
+                <div class="info-box success">
+                    <svg class="info-box-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span class="info-box-text">
+                        We read every submission and respond within 48 hours. Your ideas help build better tools for the
+                        CA community.
+                    </span>
+                </div>
+
+                <!-- Feedback Form -->
+                <!-- 
+          =====================================================
+          FORMSPREE INTEGRATION INSTRUCTIONS:
+          =====================================================
+          
+          To make this form work, you need to:
+          
+          1. Go to https://formspree.io and create a free account
+          2. Create a new form in your Formspree dashboard
+          3. Copy your form's unique endpoint URL
+          4. Replace "FORM_ID_HERE" below with your actual form ID
+          
+          Example: If your Formspree endpoint is:
+            https://formspree.io/f/xyzabcde
+          
+          Replace the action attribute with:
+            action="https://formspree.io/f/xyzabcde"
+          
+          That's it! Formspree will send form submissions to your email.
+          =====================================================
+        -->
+                <section>
+                    <h2 class="sr-only">Submit Feedback Form</h2>
+                    <form class="form-container" action="https://formspree.io/f/FORM_ID_HERE" method="POST"
+                        id="feedbackForm">
+                        <!-- Name (Optional) -->
+                        <div class="form-group">
+                            <label for="name" class="form-label">
+                                Name <span class="form-label-optional">(optional)</span>
+                            </label>
+                            <input type="text" id="name" name="name" class="form-input" placeholder="Your name"
+                                autocomplete="name">
+                        </div>
+
+                        <!-- Email (Required) -->
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" id="email" name="email" class="form-input"
+                                placeholder="your.email@example.com" required autocomplete="email">
+                            <p class="form-hint">Required for us to respond to your submission.</p>
+                        </div>
+
+                        <!-- Feedback Type -->
+                        <div class="form-group">
+                            <label for="feedbackType" class="form-label">What are you submitting?</label>
+                            <select id="feedbackType" name="feedback_type" class="form-select" required>
+                                <option value="">Select a category</option>
+                                <option value="feedback">General Feedback</option>
+                                <option value="bug">Bug Report</option>
+                                <option value="feature">Feature Request</option>
+                                <option value="tool_idea">Tool Idea</option>
+                                <option value="tool_submission">I Built a Tool</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <!-- Tool Reference (Optional) -->
+                        <div class="form-group">
+                            <label for="toolReference" class="form-label">
+                                Related Tool <span class="form-label-optional">(optional)</span>
+                            </label>
+                            <select id="toolReference" name="tool_reference" class="form-select">
+                                <option value="">Not tool-specific</option>
+                                <option value="privacy-shield">Privacy Shield</option>
+                                <option value="tax-audit-automator">Tax Audit Automator</option>
+                                <option value="new-tool">New Tool</option>
+                            </select>
+                        </div>
+
+                        <!-- Message -->
+                        <div class="form-group">
+                            <label for="message" class="form-label">Your Message</label>
+                            <textarea id="message" name="message" class="form-textarea"
+                                placeholder="Describe your feedback, bug, or tool idea in detail..." required
+                                rows="6"></textarea>
+                            <p class="form-hint">
+                                For bug reports, please include: steps to reproduce, expected behavior, and actual
+                                behavior.
+                            </p>
+                        </div>
+
+                        <!-- Hidden field for spam protection -->
+                        <input type="text" name="_gotcha" style="display:none">
+
+                        <!-- Redirect after submission (optional - customize as needed) -->
+                        <input type="hidden" name="_next" value="">
+
+                        <!-- Subject line for email -->
+                        <input type="hidden" name="_subject" value="CA Saathi Community Hub Submission">
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="btn btn-primary">
+                            <svg class="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                            </svg>
+                            Submit Feedback
+                        </button>
+                    </form>
+                </section>
+
+                <!-- Direct Contact -->
+                <section class="contact-card">
+                    <h2 class="contact-card-title">Prefer Direct Email?</h2>
+                    <p class="contact-email">
+                        <svg class="contact-email-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                        casaathi@proton.me
+                    </p>
+                    <p class="contact-description">
+                        For collaboration inquiries, tool partnerships, or if you'd prefer to communicate via email,
+                        reach out directly. We welcome contributions from CA students, professionals, and developers
+                        who want to improve the toolkit ecosystem.
+                    </p>
+                </section>
+
+                <!-- Contribution Guidelines -->
+                <section class="privacy-section mt-lg">
+                    <h2 class="privacy-section-title">
+                        <svg class="privacy-section-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                        </svg>
+                        Want to Contribute a Tool?
+                    </h2>
+                    <div class="privacy-list">
+                        <div class="privacy-list-item">
+                            <svg class="privacy-check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7" />
+                            </svg>
+                            <p class="privacy-list-item-text">
+                                <strong>Open source preferred</strong> — We prioritize tools with publicly available
+                                source code that the community can audit and trust.
+                            </p>
+                        </div>
+                        <div class="privacy-list-item">
+                            <svg class="privacy-check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7" />
+                            </svg>
+                            <p class="privacy-list-item-text">
+                                <strong>Offline-first design</strong> — Tools should work without an internet connection
+                                after download. Client data must never be transmitted.
+                            </p>
+                        </div>
+                        <div class="privacy-list-item">
+                            <svg class="privacy-check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7" />
+                            </svg>
+                            <p class="privacy-list-item-text">
+                                <strong>CA-relevant use case</strong> — Tools should address real workflows faced by CA
+                                students or professionals in audit, tax, or compliance.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Footer -->
+                <footer class="page-footer">
+                    <p class="footer-text">CA Saathi — Built with care for the CA community</p>
+                    <nav class="footer-links" aria-label="Footer navigation">
+                        <a href="../index.html" class="footer-link">Home</a>
+                        <a href="./privacy.html" class="footer-link">Privacy Shield</a>
+                    </nav>
+                </footer>
+
+            </div>
+        </main>
+
+    </div>
+
+    <!-- JavaScript -->
+    <script src="../assets/js/app.js"></script>
+</body>
+
+</html>
