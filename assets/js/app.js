@@ -5,12 +5,84 @@
  * 1. Sidebar navigation and mobile menu toggle
  * 2. Dynamic tool card rendering from tools.json
  * 3. Active navigation state management
+ * 4. Light/Dark theme management
  * 
  * No external dependencies required.
  */
 
 (function () {
   'use strict';
+
+  // ============================================
+  // Theme Management
+  // ============================================
+
+  const THEME_STORAGE_KEY = 'ca-saathi-theme';
+
+  /**
+   * Get the user's preferred theme
+   * Priority: 1. localStorage, 2. OS preference, 3. light (default)
+   * @returns {string} 'light' or 'dark'
+   */
+  function getPreferredTheme() {
+    // Check localStorage first
+    const storedTheme = localStorage.getItem(THEME_STORAGE_KEY);
+    if (storedTheme) {
+      return storedTheme;
+    }
+
+    // Check OS preference
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      return 'dark';
+    }
+
+    // Default to light
+    return 'light';
+  }
+
+  /**
+   * Apply a theme to the document
+   * @param {string} theme - 'light' or 'dark'
+   */
+  function applyTheme(theme) {
+    document.body.classList.remove('theme-light', 'theme-dark');
+    document.body.classList.add(`theme-${theme}`);
+  }
+
+  /**
+   * Toggle between light and dark themes
+   */
+  function toggleTheme() {
+    const currentTheme = document.body.classList.contains('theme-dark') ? 'dark' : 'light';
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+    applyTheme(newTheme);
+    localStorage.setItem(THEME_STORAGE_KEY, newTheme);
+  }
+
+  /**
+   * Initialize theme on page load
+   */
+  function initializeTheme() {
+    const theme = getPreferredTheme();
+    applyTheme(theme);
+
+    // Listen for theme toggle clicks
+    const themeToggle = document.getElementById('themeToggle');
+    if (themeToggle) {
+      themeToggle.addEventListener('click', toggleTheme);
+    }
+
+    // Listen for OS theme changes (only if user hasn't set preference)
+    if (window.matchMedia) {
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        // Only auto-switch if no stored preference
+        if (!localStorage.getItem(THEME_STORAGE_KEY)) {
+          applyTheme(e.matches ? 'dark' : 'light');
+        }
+      });
+    }
+  }
 
   // ============================================
   // Configuration
@@ -539,6 +611,9 @@
    * Called when DOM is fully loaded
    */
   function initialize() {
+    // Initialize theme first (to avoid flash)
+    initializeTheme();
+
     // Set active navigation item
     setActiveNavItem();
 
