@@ -270,7 +270,7 @@ ol {
   width: 100%;
   height: auto;
   display: block;
-  filter: var(--logo-filter);
+  /* No filter - logo keeps original colors in all themes */
 }
 
 .mobile-logo-img {
