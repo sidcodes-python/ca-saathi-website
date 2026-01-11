@@ -685,11 +685,62 @@ ol {
 }
 
 /* ============================================
+   Video Introduction Section
+   ============================================ */
+.video-section {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-2xl);
+  margin-bottom: var(--spacing-2xl);
+  box-shadow: var(--shadow-sm);
+}
+
+.video-section-title {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-sm);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.video-section-title svg {
+  color: var(--color-primary);
+}
+
+.video-section-subtitle {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-lg);
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  padding-bottom: 56.25%;
+  /* 16:9 aspect ratio */
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* ============================================
    Flip Card Styles
    ============================================ */
 .tool-card-container {
   perspective: 1000px;
-  height: 280px;
+  height: 260px;
 }
 
 .tool-card-flipper {
@@ -713,24 +764,41 @@ ol {
   background-color: var(--color-surface);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-md);
-  padding: var(--spacing-xl);
+  padding: var(--spacing-md);
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .tool-card-back {
   transform: rotateY(180deg);
+  overflow-y: auto;
 }
 
-/* Info Button */
+/* Tool card front layout */
+.tool-card-front .tool-card-header {
+  margin-bottom: var(--spacing-sm);
+}
+
+.tool-card-front .tool-card-description {
+  flex: 1;
+  margin-bottom: var(--spacing-sm);
+}
+
+.tool-card-front .tool-card-footer {
+  margin-top: auto;
+}
+
+/* Info Button - Small and translucent */
 .tool-info-btn {
   position: absolute;
-  top: var(--spacing-md);
-  right: var(--spacing-md);
-  width: 28px;
-  height: 28px;
+  top: var(--spacing-sm);
+  right: var(--spacing-sm);
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
-  background-color: var(--color-bg);
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(4px);
   border: 1px solid var(--color-border);
   color: var(--color-text-muted);
   display: flex;
@@ -738,10 +806,11 @@ ol {
   justify-content: center;
   cursor: pointer;
   transition: all var(--transition-base);
-  font-size: var(--font-size-sm);
+  font-size: 11px;
   font-weight: 600;
   font-style: italic;
   font-family: Georgia, serif;
+  z-index: 1;
 }
 
 .tool-info-btn:hover {
@@ -774,30 +843,30 @@ ol {
 
 /* Back Card Content */
 .tool-card-back-title {
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-base);
   font-weight: 600;
   color: var(--color-text-primary);
-  margin-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
   padding-right: var(--spacing-2xl);
 }
 
 .tool-card-back-section {
-  margin-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
 }
 
 .tool-card-back-label {
-  font-size: var(--font-size-xs);
+  font-size: 10px;
   font-weight: 600;
   color: var(--color-primary);
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  margin-bottom: var(--spacing-xs);
+  margin-bottom: 2px;
 }
 
 .tool-card-back-text {
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-xs);
   color: var(--color-text-secondary);
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
 .tool-card-creator {
@@ -810,21 +879,50 @@ ol {
   margin-top: var(--spacing-sm);
 }
 
+/* Creator Link - Bottom Right Position */
+.tool-card-creator-link {
+  position: absolute;
+  bottom: var(--spacing-md);
+  right: var(--spacing-md);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background-color: var(--color-bg);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.tool-card-creator-link:hover {
+  background-color: var(--color-primary);
+  text-decoration: none;
+}
+
+.tool-card-creator-link:hover .tool-card-creator-avatar {
+  background-color: white;
+  color: var(--color-primary);
+}
+
+.tool-card-creator-link:hover .tool-card-creator-name {
+  color: white;
+}
+
 .tool-card-creator-avatar {
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
   background-color: var(--color-primary);
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: var(--font-size-sm);
+  font-size: 10px;
   font-weight: 600;
 }
 
 .tool-card-creator-name {
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-xs);
   font-weight: 500;
   color: var(--color-text-primary);
 }
