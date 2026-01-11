@@ -113,6 +113,13 @@
                         </svg>
                         Community Hub
                     </a>
+                    <a href="./contributors.html" class="nav-item">
+                        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                        </svg>
+                        Contributors
+                    </a>
                 </div>
             </nav>
 
@@ -143,10 +150,20 @@
                 </header>
 
                 <section id="tools" aria-labelledby="tools-heading">
-                    <h2 id="tools-heading" class="sr-only">Audit Tools</h2>
-                    <div class="tools-grid">
+                    <div class="tools-header">
+                        <h2 id="tools-heading">Audit Tools</h2>
+                        <div class="tools-search-wrapper">
+                            <svg class="tools-search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            </svg>
+                            <input type="text" id="toolsSearch" class="tools-search-input"
+                                placeholder="Search tools...">
+                        </div>
+                    </div>
+                    <div class="tools-grid" id="toolsGrid">
                         <!-- 26AS Analyzer -->
-                        <article class="tool-card">
+                        <article class="tool-card" data-name="26AS Analyzer">
                             <header class="tool-card-header">
                                 <h3 class="tool-card-title">26AS Analyzer</h3>
                                 <span class="tool-card-category audit">Audit</span>
@@ -204,6 +221,38 @@
     </div>
 
     <script src="../assets/js/app.js"></script>
+    <script>
+        // Tools Search Functionality
+        document.getElementById('toolsSearch').addEventListener('input', function (e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const cards = document.querySelectorAll('.tool-card');
+            let hasResults = false;
+
+            cards.forEach(card => {
+                const name = card.dataset.name.toLowerCase();
+                if (name.includes(searchTerm)) {
+                    card.style.display = '';
+                    hasResults = true;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // Show no results message if needed
+            let noResults = document.getElementById('noResults');
+            if (!hasResults && searchTerm) {
+                if (!noResults) {
+                    noResults = document.createElement('p');
+                    noResults.id = 'noResults';
+                    noResults.className = 'no-results';
+                    noResults.textContent = 'No tools found matching your search.';
+                    document.getElementById('toolsGrid').appendChild(noResults);
+                }
+            } else if (noResults) {
+                noResults.remove();
+            }
+        });
+    </script>
 </body>
 
 </html>

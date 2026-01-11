@@ -621,3 +621,17 @@
   }
 
 })();
+
+// ============================================
+// Flip Card Functionality (Global)
+// ============================================
+/**
+ * Toggle flip state of a tool card
+ * @param {string} cardId - The ID of the card container to flip
+ */
+function flipCard(cardId) {
+  const card = document.getElementById(cardId);
+  if (card) {
+    card.classList.toggle('flipped');
+  }
+}

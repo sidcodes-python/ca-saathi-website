@@ -113,6 +113,13 @@
                         </svg>
                         Community Hub
                     </a>
+                    <a href="./contributors.html" class="nav-item">
+                        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                        </svg>
+                        Contributors
+                    </a>
                 </div>
             </nav>
 
@@ -143,53 +150,132 @@
                 </header>
 
                 <section id="tools" aria-labelledby="tools-heading">
-                    <h2 id="tools-heading" class="sr-only">Compliance Tools</h2>
-                    <div class="tools-grid">
+                    <div class="tools-header">
+                        <h2 id="tools-heading">Compliance Tools</h2>
+                        <div class="tools-search-wrapper">
+                            <svg class="tools-search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            </svg>
+                            <input type="text" id="toolsSearch" class="tools-search-input"
+                                placeholder="Search tools...">
+                        </div>
+                    </div>
+                    <div class="tools-grid" id="toolsGrid">
                         <!-- Privacy Shield -->
-                        <article class="tool-card">
-                            <header class="tool-card-header">
-                                <h3 class="tool-card-title">Privacy Shield</h3>
-                                <span class="tool-card-category compliance">Compliance</span>
-                            </header>
-                            <p class="tool-card-description">Secure document redaction tool for sensitive client data.
-                                Automatically identifies and masks PAN, Aadhaar, and other confidential information in
-                                PDFs.</p>
-                            <footer class="tool-card-footer">
-                                <span class="tool-card-version">Version 1.2.0</span>
-                                <a href="https://github.com/ca-saathi/privacy-shield/releases/latest/download/Privacy-Shield.exe"
-                                    class="btn btn-primary" target="_blank" rel="noopener noreferrer">
-                                    <svg class="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                        aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                                    </svg>
-                                    Download Tool
-                                </a>
-                            </footer>
-                        </article>
+                        <div class="tool-card-container" id="privacy-shield-card" data-name="Privacy Shield">
+                            <div class="tool-card-flipper">
+                                <!-- Front -->
+                                <article class="tool-card-front">
+                                    <button class="tool-info-btn" onclick="flipCard('privacy-shield-card')"
+                                        aria-label="More info">i</button>
+                                    <header class="tool-card-header">
+                                        <h3 class="tool-card-title">Privacy Shield</h3>
+                                        <span class="tool-card-category">Compliance</span>
+                                    </header>
+                                    <p class="tool-card-description">Secure document redaction tool for sensitive client
+                                        data.
+                                        Automatically identifies and masks PAN, Aadhaar, and other confidential
+                                        information in
+                                        PDFs.</p>
+                                    <footer class="tool-card-footer">
+                                        <span class="tool-card-version">Version 1.2.0</span>
+                                        <a href="https://github.com/ca-saathi/privacy-shield/releases/latest/download/Privacy-Shield.exe"
+                                            class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+                                            <svg class="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                            </svg>
+                                            Download
+                                        </a>
+                                    </footer>
+                                </article>
+                                <!-- Back -->
+                                <div class="tool-card-back">
+                                    <button class="tool-info-btn" onclick="flipCard('privacy-shield-card')"
+                                        aria-label="Go back">×</button>
+                                    <h4 class="tool-card-back-title">Privacy Shield</h4>
+                                    <div class="tool-card-back-section">
+                                        <p class="tool-card-back-label">What It Does</p>
+                                        <p class="tool-card-back-text">Automatically detects and redacts sensitive
+                                            information like PAN numbers, Aadhaar, bank details, and personal
+                                            identifiers from PDF documents.</p>
+                                    </div>
+                                    <div class="tool-card-back-section">
+                                        <p class="tool-card-back-label">Who Needs It</p>
+                                        <p class="tool-card-back-text">CA professionals handling client documents, audit
+                                            teams sharing financial data, and anyone needing GDPR/privacy compliance.
+                                        </p>
+                                    </div>
+                                    <div class="tool-card-back-section">
+                                        <p class="tool-card-back-label">Created By</p>
+                                        <div class="tool-card-creator">
+                                            <div class="tool-card-creator-avatar">SA</div>
+                                            <span class="tool-card-creator-name">Siddharth Agarwal</span>
+                                        </div>
+                                    </div>
+                                    <button class="tool-back-btn" onclick="flipCard('privacy-shield-card')">← Back to
+                                        Tool</button>
+                                </div>
+                            </div>
+                        </div>
 
                         <!-- File Saathi -->
-                        <article class="tool-card">
-                            <header class="tool-card-header">
-                                <h3 class="tool-card-title">File Saathi</h3>
-                                <span class="tool-card-category compliance">Compliance</span>
-                            </header>
-                            <p class="tool-card-description">Offline PDF manipulation tool for merge, split, protect,
-                                unlock, and audit-safe document handling. All processing happens locally on your
-                                machine.</p>
-                            <footer class="tool-card-footer">
-                                <span class="tool-card-version">Version 1.0.0</span>
-                                <a href="https://github.com/sidcodes-python/file-saathi/releases/latest"
-                                    class="btn btn-primary" target="_blank" rel="noopener noreferrer">
-                                    <svg class="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                        aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                                    </svg>
-                                    Download Tool
-                                </a>
-                            </footer>
-                        </article>
+                        <div class="tool-card-container" id="file-saathi-card" data-name="File Saathi">
+                            <div class="tool-card-flipper">
+                                <!-- Front -->
+                                <article class="tool-card-front">
+                                    <button class="tool-info-btn" onclick="flipCard('file-saathi-card')"
+                                        aria-label="More info">i</button>
+                                    <header class="tool-card-header">
+                                        <h3 class="tool-card-title">File Saathi</h3>
+                                        <span class="tool-card-category">Compliance</span>
+                                    </header>
+                                    <p class="tool-card-description">Offline PDF manipulation tool for merge, split,
+                                        protect,
+                                        unlock, and audit-safe document handling. All processing happens locally on your
+                                        machine.</p>
+                                    <footer class="tool-card-footer">
+                                        <span class="tool-card-version">Version 1.0.0</span>
+                                        <a href="https://github.com/sidcodes-python/file-saathi/releases/latest"
+                                            class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+                                            <svg class="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                            </svg>
+                                            Download
+                                        </a>
+                                    </footer>
+                                </article>
+                                <!-- Back -->
+                                <div class="tool-card-back">
+                                    <button class="tool-info-btn" onclick="flipCard('file-saathi-card')"
+                                        aria-label="Go back">×</button>
+                                    <h4 class="tool-card-back-title">File Saathi</h4>
+                                    <div class="tool-card-back-section">
+                                        <p class="tool-card-back-label">What It Does</p>
+                                        <p class="tool-card-back-text">A complete offline PDF toolkit: merge multiple
+                                            PDFs, split documents, add passwords, remove restrictions, compress files,
+                                            and reorder pages.</p>
+                                    </div>
+                                    <div class="tool-card-back-section">
+                                        <p class="tool-card-back-label">Who Needs It</p>
+                                        <p class="tool-card-back-text">Auditors managing large document sets, CA firms
+                                            handling client filings, and professionals needing secure offline PDF
+                                            processing.</p>
+                                    </div>
+                                    <div class="tool-card-back-section">
+                                        <p class="tool-card-back-label">Created By</p>
+                                        <div class="tool-card-creator">
+                                            <div class="tool-card-creator-avatar">SA</div>
+                                            <span class="tool-card-creator-name">Siddharth Agarwal</span>
+                                        </div>
+                                    </div>
+                                    <button class="tool-back-btn" onclick="flipCard('file-saathi-card')">← Back to
+                                        Tool</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </section>
 
@@ -227,6 +313,38 @@
     </div>
 
     <script src="../assets/js/app.js"></script>
+    <script>
+        // Tools Search Functionality
+        document.getElementById('toolsSearch').addEventListener('input', function (e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const cards = document.querySelectorAll('.tool-card-container');
+            let hasResults = false;
+
+            cards.forEach(card => {
+                const name = card.dataset.name.toLowerCase();
+                if (name.includes(searchTerm)) {
+                    card.style.display = '';
+                    hasResults = true;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // Show no results message if needed
+            let noResults = document.getElementById('noResults');
+            if (!hasResults && searchTerm) {
+                if (!noResults) {
+                    noResults = document.createElement('p');
+                    noResults.id = 'noResults';
+                    noResults.className = 'no-results';
+                    noResults.textContent = 'No tools found matching your search.';
+                    document.getElementById('toolsGrid').appendChild(noResults);
+                }
+            } else if (noResults) {
+                noResults.remove();
+            }
+        });
+    </script>
 </body>
 
 </html>
