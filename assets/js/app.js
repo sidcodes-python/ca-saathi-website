@@ -577,29 +577,13 @@
 
   /**
    * Initialize SPA router
+   * DISABLED: SPA router was causing 404 errors
+   * Website now uses standard browser navigation
    */
   function initializeSPARouter() {
-    // Set initial state
-    history.replaceState({ url: window.location.href }, document.title, window.location.href);
-
-    // Listen for all clicks (event delegation)
-    document.addEventListener('click', handleLinkClick);
-
-    // Listen for back/forward navigation
-    window.addEventListener('popstate', handlePopState);
-
-    // Preload pages on hover
-    document.addEventListener('mouseover', (event) => {
-      const link = event.target.closest('a');
-      if (link) {
-        const href = link.getAttribute('href');
-        if (href) {
-          preloadPage(href);
-        }
-      }
-    });
-
-    console.log('SPA Router initialized');
+    // SPA Router has been disabled because it caused 404 errors
+    // The website now uses standard browser navigation which is more reliable
+    console.log('SPA Router disabled - using standard navigation');
   }
 
   // ============================================
