@@ -48,75 +48,92 @@
 /* ============================================
    Light Theme (Default)
    ============================================ */
+/* ============================================
+   Light Theme (Default) - Refined
+   ============================================ */
 .theme-light,
 :root {
   /* Primary Colors */
-  --color-primary: #1FB6A6;
-  --color-primary-hover: #1a9e91;
-  --color-primary-light: #1FB6A6;
+  --color-primary: #1FB6B2;
+  /* Mid Teal */
+  --color-primary-hover: #199c98;
+  --color-primary-light: #4FD1C5;
+  /* Lighter Teal for gradients */
 
-  /* Sidebar Colors */
-  --color-sidebar-bg: #0B1F3B;
-  --color-sidebar-text: #FFFFFF;
-  --color-sidebar-text-muted: rgba(255, 255, 255, 0.5);
-  --color-sidebar-border: rgba(255, 255, 255, 0.1);
-  --color-sidebar-hover: rgba(255, 255, 255, 0.05);
+  /* Sidebar Colors - White with stronger definition for hierarchy */
+  --color-sidebar-bg: #FFFFFF;
+  --color-sidebar-text: #0B1F3B;
+  /* Deep Navy */
+  --color-sidebar-text-muted: #475569;
+  /* Slate 600 for better readability */
+  --color-sidebar-border: #CBD5E1;
+  /* Slate 300 - Stronger border */
+  --color-sidebar-hover: #F1F5F9;
 
   /* Neutral Colors */
-  --color-bg: #F8FAFC;
+  --color-bg: #F0F4F8;
+  /* Slightly deeper bluish-gray for better contrast with white cards */
+  --color-bg-alt: #FFFFFF;
   --color-surface: #FFFFFF;
-  --color-border: #E5E7EB;
-  --color-border-light: #F1F5F9;
+  --color-border: #E2E8F0;
+  --color-border-light: #F8FAFC;
 
   /* Text Colors */
-  --color-text-primary: #0B1F3B;
-  --color-text-secondary: #6B7280;
-  --color-text-muted: #6B7280;
+  --color-text-primary: #0F172A;
+  /* Slate 900 - Sharp contrast */
+  --color-text-secondary: #475569;
+  /* Slate 600 */
+  --color-text-muted: #64748B;
 
   /* Accent Colors */
-  --color-success: #059669;
-  --color-warning: #d97706;
-  --color-error: #dc2626;
+  --color-success: #10B981;
+  --color-warning: #F59E0B;
+  --color-error: #EF4444;
 
   /* Category Colors */
-  --color-category-audit: #1FB6A6;
-  --color-category-tax: #1FB6A6;
-  --color-category-compliance: #1FB6A6;
+  --color-category-audit: #1FB6B2;
+  --color-category-tax: #1FB6B2;
+  --color-category-compliance: #1FB6B2;
 
-  /* Shadows */
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  /* Shadows - Enhanced for White-on-White hierarchy */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 
-  /* Logo filter (no change for light) */
-  --logo-filter: brightness(0) invert(1);
+  /* Logo filter: None */
+  --logo-filter: none;
 }
 
 /* ============================================
-   Dark Theme
+   Dark Theme - Refined
    ============================================ */
 .theme-dark {
   /* Primary Colors */
   --color-primary: #22D3EE;
+  /* Cyan - Pops better on dark */
   --color-primary-hover: #1cb8d1;
   --color-primary-light: #22D3EE;
 
-  /* Sidebar Colors */
-  --color-sidebar-bg: #0F172A;
-  --color-sidebar-text: #E5E7EB;
-  --color-sidebar-text-muted: rgba(229, 231, 235, 0.5);
-  --color-sidebar-border: rgba(229, 231, 235, 0.1);
-  --color-sidebar-hover: rgba(255, 255, 255, 0.05);
+  /* Sidebar Colors - Lighter Slate to reveal Dark Logo */
+  --color-sidebar-bg: #1E293B;
+  /* Slate 800 - Lighter than before */
+  --color-sidebar-text: #F1F5F9;
+  --color-sidebar-text-muted: #94A3B8;
+  --color-sidebar-border: #334155;
+  --color-sidebar-hover: #334155;
 
   /* Neutral Colors */
   --color-bg: #020617;
+  /* Slate 950 - Very Dark */
+  --color-bg-alt: #0F172A;
   --color-surface: #0F172A;
+  /* Slate 900 */
   --color-border: #1E293B;
   --color-border-light: #1E293B;
 
   /* Text Colors */
-  --color-text-primary: #E5E7EB;
-  --color-text-secondary: #94A3B8;
+  --color-text-primary: #F8FAFC;
+  --color-text-secondary: #CBD5E1;
   --color-text-muted: #94A3B8;
 
   /* Accent Colors */
@@ -129,13 +146,13 @@
   --color-category-tax: #22D3EE;
   --color-category-compliance: #22D3EE;
 
-  /* Shadows (more subtle for dark) */
+  /* Shadows */
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.3);
   --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.4), 0 4px 6px -4px rgb(0 0 0 / 0.3);
 
-  /* Logo filter (invert for dark background) */
-  --logo-filter: brightness(0) invert(1);
+  /* Logo filter: None */
+  --logo-filter: none;
 }
 
 /* ============================================
@@ -631,13 +648,16 @@ ol {
 }
 
 .btn-primary {
-  background-color: var(--color-primary);
+  background: linear-gradient(135deg, var(--color-primary) 0%, #17a9a0 100%);
   color: white;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-base);
 }
 
 .btn-primary:hover {
-  background-color: var(--color-primary-hover);
-  color: white;
+  background: linear-gradient(135deg, #1aaa9f 0%, #138982 100%);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
 }
 
 .btn-secondary {
