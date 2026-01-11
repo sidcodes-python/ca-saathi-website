@@ -146,7 +146,7 @@ Edit CSS variables in `assets/css/style.css`:
 ### Changing the Contact Email
 
 1. Open `pages/community.html`
-2. Find: `casaathi@proton.me`
+2. Find: `casaathi01@gmail.com`
 3. Replace with your email address
 
 ---

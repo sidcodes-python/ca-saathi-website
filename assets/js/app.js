@@ -9,13 +9,13 @@
  * No external dependencies required.
  */
 
-(function() {
+(function () {
   'use strict';
 
   // ============================================
   // Configuration
   // ============================================
-  
+
   /**
    * Path to tools.json file
    * Adjust this path based on your deployment structure
@@ -38,7 +38,7 @@
   // ============================================
   // DOM Elements
   // ============================================
-  
+
   const sidebar = document.getElementById('sidebar');
   const sidebarOverlay = document.getElementById('sidebarOverlay');
   const mobileMenuBtn = document.getElementById('mobileMenuBtn');
@@ -79,7 +79,7 @@
 
     navItems.forEach(item => {
       item.classList.remove('active');
-      
+
       const href = item.getAttribute('href');
       if (!href) return;
 
@@ -109,11 +109,11 @@
   async function fetchTools() {
     try {
       const response = await fetch(TOOLS_JSON_PATH);
-      
+
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
-      
+
       const tools = await response.json();
       return tools;
     } catch (error) {
@@ -129,7 +129,7 @@
    */
   function createToolCard(tool) {
     const categoryClass = tool.category || 'compliance';
-    
+
     return `
       <article class="tool-card" data-tool-id="${escapeHtml(tool.id)}">
         <header class="tool-card-header">
@@ -160,7 +160,7 @@
    */
   function renderLoadingState() {
     if (!toolsContainer) return;
-    
+
     toolsContainer.innerHTML = `
       <div class="tools-loading">
         <div class="loading-spinner"></div>
@@ -174,7 +174,7 @@
    */
   function renderEmptyState() {
     if (!toolsContainer) return;
-    
+
     toolsContainer.innerHTML = `
       <div class="empty-state">
         <svg class="empty-state-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -193,7 +193,7 @@
    */
   function renderErrorState(message) {
     if (!toolsContainer) return;
-    
+
     toolsContainer.innerHTML = `
       <div class="info-box warning">
         <svg class="info-box-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -249,7 +249,7 @@
    */
   function escapeHtml(text) {
     if (typeof text !== 'string') return '';
-    
+
     const escapeMap = {
       '&': '&amp;',
       '<': '&lt;',
@@ -257,7 +257,7 @@
       '"': '&quot;',
       "'": '&#039;'
     };
-    
+
     return text.replace(/[&<>"']/g, char => escapeMap[char]);
   }
 
@@ -295,6 +295,242 @@
   }
 
   // ============================================
+  // SPA Router - Smooth Navigation
+  // ============================================
+
+  /**
+   * Cache for fetched pages to avoid re-fetching
+   */
+  const pageCache = new Map();
+
+  /**
+   * Check if a URL is internal (same origin, not external)
+   * @param {string} href - The URL to check
+   * @returns {boolean} True if internal
+   */
+  function isInternalLink(href) {
+    if (!href) return false;
+    if (href.startsWith('#')) return false;
+    if (href.startsWith('http://') || href.startsWith('https://')) {
+      try {
+        const url = new URL(href);
+        return url.origin === window.location.origin;
+      } catch {
+        return false;
+      }
+    }
+    // Relative URLs are internal
+    return true;
+  }
+
+  /**
+   * Resolve a relative URL to absolute
+   * @param {string} href - Relative or absolute URL
+   * @returns {string} Absolute URL
+   */
+  function resolveUrl(href) {
+    const a = document.createElement('a');
+    a.href = href;
+    return a.href;
+  }
+
+  /**
+   * Fetch a page and extract the main-inner content
+   * Uses XMLHttpRequest for file:// protocol compatibility
+   * @param {string} url - URL to fetch
+   * @returns {Promise<{content: string, title: string}>}
+   */
+  async function fetchPageContent(url) {
+    // Check cache first
+    if (pageCache.has(url)) {
+      return pageCache.get(url);
+    }
+
+    return new Promise((resolve, reject) => {
+      const xhr = new XMLHttpRequest();
+      xhr.open('GET', url, true);
+
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+          if (xhr.status === 200 || xhr.status === 0) {
+            // status 0 is valid for file:// protocol
+            const html = xhr.responseText;
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
+
+            const mainInner = doc.querySelector('.main-inner');
+            const title = doc.querySelector('title')?.textContent || 'CA Saathi';
+
+            const result = {
+              content: mainInner ? mainInner.innerHTML : '',
+              title: title
+            };
+
+            // Cache the result
+            pageCache.set(url, result);
+            resolve(result);
+          } else {
+            reject(new Error(`Failed to fetch ${url}: ${xhr.status}`));
+          }
+        }
+      };
+
+      xhr.onerror = function () {
+        reject(new Error(`Network error fetching ${url}`));
+      };
+
+      xhr.send();
+    });
+  }
+
+  /**
+   * Navigate to a new page without full reload
+   * @param {string} url - URL to navigate to
+   * @param {boolean} pushState - Whether to push to history
+   */
+  async function navigateTo(url, pushState = true) {
+    const mainInner = document.querySelector('.main-inner');
+    if (!mainInner) {
+      // Fallback to regular navigation
+      window.location.href = url;
+      return;
+    }
+
+    try {
+      // Fade out current content
+      mainInner.classList.add('spa-fade-out');
+
+      // Fetch new content
+      const { content, title } = await fetchPageContent(url);
+
+      // Wait for fade out animation
+      await new Promise(resolve => setTimeout(resolve, 150));
+
+      // Swap content
+      mainInner.innerHTML = content;
+
+      // Update title
+      document.title = title;
+
+      // Update URL
+      if (pushState) {
+        history.pushState({ url }, title, url);
+      }
+
+      // Update active nav item
+      setActiveNavItem();
+
+      // Re-initialize tools if on home page
+      if (document.getElementById('toolsContainer')) {
+        initializeTools();
+      }
+
+      // Scroll to top
+      window.scrollTo(0, 0);
+
+      // Fade in new content
+      mainInner.classList.remove('spa-fade-out');
+      mainInner.classList.add('spa-fade-in');
+
+      // Remove fade-in class after animation
+      setTimeout(() => {
+        mainInner.classList.remove('spa-fade-in');
+      }, 300);
+
+      // Close mobile sidebar if open
+      closeSidebar();
+
+    } catch (error) {
+      console.error('SPA navigation failed:', error);
+      // Fallback to regular navigation
+      window.location.href = url;
+    }
+  }
+
+  /**
+   * Handle click events for SPA navigation
+   * @param {Event} event - Click event
+   */
+  function handleLinkClick(event) {
+    // Find the closest anchor tag
+    const link = event.target.closest('a');
+    if (!link) return;
+
+    const href = link.getAttribute('href');
+
+    // Skip if not internal, has target, or has download attribute
+    if (!isInternalLink(href)) return;
+    if (link.target === '_blank') return;
+    if (link.hasAttribute('download')) return;
+
+    // Skip if modifier keys are pressed (for new tab, etc.)
+    if (event.ctrlKey || event.metaKey || event.shiftKey) return;
+
+    // Prevent default and navigate via SPA
+    event.preventDefault();
+    const absoluteUrl = resolveUrl(href);
+
+    // Don't navigate if already on the same page
+    if (absoluteUrl === window.location.href) return;
+
+    navigateTo(absoluteUrl);
+  }
+
+  /**
+   * Handle browser back/forward navigation
+   * @param {PopStateEvent} event
+   */
+  function handlePopState(event) {
+    if (event.state && event.state.url) {
+      navigateTo(event.state.url, false);
+    } else {
+      // Reload current URL without pushing state
+      navigateTo(window.location.href, false);
+    }
+  }
+
+  /**
+   * Preload a page on hover for faster navigation
+   * @param {string} href - URL to preload
+   */
+  function preloadPage(href) {
+    if (!isInternalLink(href)) return;
+    const absoluteUrl = resolveUrl(href);
+    if (!pageCache.has(absoluteUrl)) {
+      fetchPageContent(absoluteUrl).catch(() => {
+        // Silently ignore preload failures
+      });
+    }
+  }
+
+  /**
+   * Initialize SPA router
+   */
+  function initializeSPARouter() {
+    // Set initial state
+    history.replaceState({ url: window.location.href }, document.title, window.location.href);
+
+    // Listen for all clicks (event delegation)
+    document.addEventListener('click', handleLinkClick);
+
+    // Listen for back/forward navigation
+    window.addEventListener('popstate', handlePopState);
+
+    // Preload pages on hover
+    document.addEventListener('mouseover', (event) => {
+      const link = event.target.closest('a');
+      if (link) {
+        const href = link.getAttribute('href');
+        if (href) {
+          preloadPage(href);
+        }
+      }
+    });
+
+    console.log('SPA Router initialized');
+  }
+
+  // ============================================
   // Initialization
   // ============================================
 
@@ -311,6 +547,9 @@
 
     // Initialize tools if container exists (only on home page)
     initializeTools();
+
+    // Initialize SPA router for smooth navigation
+    initializeSPARouter();
 
     console.log('CA Saathi initialized successfully');
   }

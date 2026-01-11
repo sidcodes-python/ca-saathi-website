@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="CA Saathi FAQ - Frequently asked questions about our tools, downloads, privacy, and support.">
+    <meta name="keywords" content="CA Saathi FAQ, frequently asked questions, CA tools help, download help">
+    <meta name="author" content="CA Saathi">
+
+    <title>FAQ - CA Saathi</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../assets/images/logo-icon.png">
+
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body>
+    <div class="app-container">
+
+        <!-- Mobile Header -->
+        <header class="mobile-header">
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu">
+                <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+            <img src="../assets/images/logo-icon.png" alt="CA Saathi" class="mobile-logo-img">
+            <div style="width: 40px;"></div>
+        </header>
+
+        <!-- Sidebar Overlay (mobile) -->
+        <div class="sidebar-overlay" id="sidebarOverlay" aria-hidden="true"></div>
+
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar" id="sidebar" role="navigation" aria-label="Main navigation">
+            <div class="sidebar-header">
+                <a href="../index.html" class="sidebar-logo-link">
+                    <img src="../assets/images/logo-full.png" alt="CA Saathi - Toolkit Ecosystem"
+                        class="sidebar-logo-img">
+                </a>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title">Navigation</div>
+                    <a href="../index.html" class="nav-item">
+                        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                        </svg>
+                        Home
+                    </a>
+                    <a href="./privacy.html" class="nav-item">
+                        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                        Our Policy- Privacy First
+                    </a>
+                    <a href="./faq.html" class="nav-item">
+                        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        FAQ
+                    </a>
+                </div>
+
+                <div class="nav-section-header">Our Tools for-</div>
+
+                <div class="nav-section compact">
+                    <div class="nav-section-title">Compliance</div>
+                    <a href="./compliance.html" class="nav-item">
+                        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                        View All
+                    </a>
+                </div>
+
+                <div class="nav-section compact">
+                    <div class="nav-section-title">Audit</div>
+                    <a href="./audit.html" class="nav-item">
+                        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                        </svg>
+                        View All
+                    </a>
+                </div>
+
+                <div class="nav-section compact">
+                    <div class="nav-section-title">Tax</div>
+                    <span class="nav-item" style="color: var(--color-text-muted); cursor: default;">
+                        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                        </svg>
+                        Coming Soon
+                    </span>
+                </div>
+
+                <div class="nav-section">
+                    <div class="nav-section-title">Community</div>
+                    <a href="./community.html" class="nav-item">
+                        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                        Community Hub
+                    </a>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <p class="sidebar-footer-text">Built for CA Students</p>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="main-inner">
+
+                <!-- Page Header -->
+                <header class="page-header">
+                    <h1 class="page-title">Frequently Asked Questions</h1>
+                    <p class="page-subtitle">
+                        Find answers to common questions about CA Saathi, our tools, downloads, and more.
+                    </p>
+                </header>
+
+                <!-- About Section -->
+                <section class="faq-section">
+                    <h2 class="faq-section-title">
+                        <svg class="faq-section-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        About CA Saathi
+                    </h2>
+
+                    <div class="faq-accordion">
+                        <details class="faq-item">
+                            <summary class="faq-question">What is CA Saathi?</summary>
+                            <div class="faq-answer">
+                                <p>CA Saathi is a free toolkit ecosystem designed specifically for Chartered Accountancy
+                                    students and professionals. We provide offline-first desktop applications for audit,
+                                    tax, and compliance workflows. All tools are built with privacy in mind — your data
+                                    never leaves your computer.</p>
+                            </div>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary class="faq-question">Who created CA Saathi?</summary>
+                            <div class="faq-answer">
+                                <p>CA Saathi was created by <strong>Siddharth Agarwal</strong>, a CA Final student from
+                                    Kolkata who is passionate about leveraging AI-powered solutions to simplify everyday
+                                    tasks. The project reflects his vision of combining technology with practical
+                                    professional needs to build tools that genuinely help the CA community.</p>
+                            </div>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary class="faq-question">Is CA Saathi affiliated with ICAI or any official body?
+                            </summary>
+                            <div class="faq-answer">
+                                <p><strong>No.</strong> CA Saathi is an independent, community-driven project. We are
+                                    not affiliated with, endorsed by, or connected to the Institute of Chartered
+                                    Accountants of India (ICAI) or any other official regulatory body. Our tools are
+                                    created independently to help CA students and professionals.</p>
+                            </div>
+                        </details>
+                    </div>
+                </section>
+
+                <!-- Downloads Section -->
+                <section class="faq-section">
+                    <h2 class="faq-section-title">
+                        <svg class="faq-section-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                        </svg>
+                        Downloads & Security
+                    </h2>
+
+                    <div class="faq-accordion">
+                        <details class="faq-item">
+                            <summary class="faq-question">Why does my browser show a security warning when downloading?
+                            </summary>
+                            <div class="faq-answer">
+                                <p>This is <strong>completely normal</strong> for any .exe file downloaded from the
+                                    internet. Browsers like Chrome, Edge, and Firefox display warnings for all
+                                    executable files as a security precaution — this is not specific to our tools.</p>
+                                <p>Our tools are safe to download and use. To proceed:</p>
+                                <ul>
+                                    <li><strong>Chrome:</strong> Click the "^" arrow next to the download → Select
+                                        "Keep"</li>
+                                    <li><strong>Edge:</strong> Click "..." → "Keep" → "Keep anyway"</li>
+                                    <li><strong>Firefox:</strong> The download should proceed normally</li>
+                                </ul>
+                            </div>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary class="faq-question">Is the downloaded file safe?</summary>
+                            <div class="faq-answer">
+                                <p><strong>Yes.</strong> All our tools are:</p>
+                                <ul>
+                                    <li>Open-source — you can review the source code on GitHub</li>
+                                    <li>Built transparently using GitHub Actions (automated builds)</li>
+                                    <li>Distributed directly from GitHub Releases (no third-party hosting)</li>
+                                    <li>Offline-first — they don't send data anywhere</li>
+                                </ul>
+                                <p>If you're still concerned, you can scan any downloaded file with your antivirus
+                                    software or upload it to <a href="https://www.virustotal.com" target="_blank"
+                                        rel="noopener">VirusTotal</a> for analysis.</p>
+                            </div>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary class="faq-question">Why are tools hosted on GitHub instead of directly on the
+                                website?</summary>
+                            <div class="faq-answer">
+                                <p>We use GitHub Releases for several important reasons:</p>
+                                <ul>
+                                    <li><strong>Transparency:</strong> GitHub shows the complete source code and build
+                                        process</li>
+                                    <li><strong>Trust:</strong> GitHub is a reputable platform used by millions of
+                                        developers</li>
+                                    <li><strong>Version Control:</strong> Easy access to all previous versions</li>
+                                    <li><strong>Reliability:</strong> Fast, reliable downloads from GitHub's CDN</li>
+                                </ul>
+                            </div>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary class="faq-question">What if the download link doesn't work?</summary>
+                            <div class="faq-answer">
+                                <p>If a download link isn't working:</p>
+                                <ul>
+                                    <li>Try refreshing the page</li>
+                                    <li>Check your internet connection</li>
+                                    <li>Visit the tool's GitHub repository directly</li>
+                                    <li>Report the issue via our <a href="./community.html">Community Hub</a></li>
+                                </ul>
+                            </div>
+                        </details>
+                    </div>
+                </section>
+
+                <!-- Installation Section -->
+                <section class="faq-section">
+                    <h2 class="faq-section-title">
+                        <svg class="faq-section-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+                        </svg>
+                        Installation
+                    </h2>
+
+                    <div class="faq-accordion">
+                        <details class="faq-item">
+                            <summary class="faq-question">Do I need to install anything?</summary>
+                            <div class="faq-answer">
+                                <p>Most of our tools are <strong>portable applications</strong> — just download the .exe
+                                    file and run it. No installation required. Some tools may require extraction if
+                                    downloaded as a .zip file.</p>
+                            </div>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary class="faq-question">Why does Windows SmartScreen block the app?</summary>
+                            <div class="faq-answer">
+                                <p>Windows SmartScreen shows warnings for applications from "unknown publishers." This
+                                    happens because:</p>
+                                <ul>
+                                    <li>Our tools are not signed with an expensive code-signing certificate
+                                        (~$200-400/year)</li>
+                                    <li>SmartScreen learns from download frequency — less downloaded apps trigger
+                                        warnings</li>
+                                    <li>This is a standard Windows security feature, not an indication of malware</li>
+                                </ul>
+                                <p>As a free, community-driven project, we prioritize keeping tools free over purchasing
+                                    expensive certificates.</p>
+                            </div>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary class="faq-question">How do I allow the app to run past SmartScreen?</summary>
+                            <div class="faq-answer">
+                                <p>When you see the "Windows protected your PC" message:</p>
+                                <ol>
+                                    <li>Click <strong>"More info"</strong> (this reveals additional options)</li>
+                                    <li>Click <strong>"Run anyway"</strong></li>
+                                </ol>
+                                <p>This is a one-time action. Windows will remember your choice for that specific file.
+                                </p>
+                            </div>
+                        </details>
+                    </div>
+                </section>
+
+                <!-- Usage Section -->
+                <section class="faq-section">
+                    <h2 class="faq-section-title">
+                        <svg class="faq-section-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                        Usage
+                    </h2>
+
+                    <div class="faq-accordion">
+                        <details class="faq-item">
+                            <summary class="faq-question">Do the tools require an internet connection after download?
+                            </summary>
+                            <div class="faq-answer">
+                                <p><strong>No.</strong> All CA Saathi tools are designed to work completely offline.
+                                    Once downloaded, you never need an internet connection to use them. This is
+                                    intentional — we believe your sensitive financial data should never leave your
+                                    computer.</p>
+                            </div>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary class="faq-question">What operating systems are supported?</summary>
+                            <div class="faq-answer">
+                                <p>Currently, our tools are built for <strong>Windows</strong> (Windows 10 and later
+                                    recommended). We're working on macOS and Linux support for future releases. Check
+                                    individual tool pages for specific requirements.</p>
+                            </div>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary class="faq-question">Where is my data stored when using the tools?</summary>
+                            <div class="faq-answer">
+                                <p>All data remains <strong>on your computer only</strong>. Depending on the tool:</p>
+                                <ul>
+                                    <li>Processed files are saved wherever you choose to save them</li>
+                                    <li>Temporary files (if any) are stored locally and can be deleted</li>
+                                    <li>No data is ever uploaded to any server</li>
+                                </ul>
+                            </div>
+                        </details>
+                    </div>
+                </section>
+
+                <!-- Updates Section -->
+                <section class="faq-section">
+                    <h2 class="faq-section-title">
+                        <svg class="faq-section-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                        </svg>
+                        Updates
+                    </h2>
+
+                    <div class="faq-accordion">
+                        <details class="faq-item">
+                            <summary class="faq-question">How do I get updates for the tools?</summary>
+                            <div class="faq-answer">
+                                <p>To update a tool:</p>
+                                <ol>
+                                    <li>Visit the tool's page on CA Saathi website</li>
+                                    <li>Check the version number against what you have</li>
+                                    <li>Download the latest version if there's an update</li>
+                                    <li>Replace your old file with the new one</li>
+                                </ol>
+                                <p>We're working on adding update notifications in future versions.</p>
+                            </div>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary class="faq-question">Will my data be lost when I update a tool?</summary>
+                            <div class="faq-answer">
+                                <p>Generally, <strong>no</strong>. Since our tools are portable and don't store data
+                                    inside themselves, updating (replacing the .exe file) won't affect your saved work.
+                                    Your files remain wherever you saved them on your computer.</p>
+                            </div>
+                        </details>
+                    </div>
+                </section>
+
+                <!-- Rights Section -->
+                <section class="faq-section">
+                    <h2 class="faq-section-title">
+                        <svg class="faq-section-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                        Your Rights
+                    </h2>
+
+                    <div class="faq-accordion">
+                        <details class="faq-item">
+                            <summary class="faq-question">Is CA Saathi free to use?</summary>
+                            <div class="faq-answer">
+                                <p><strong>Yes, completely free.</strong> All tools on CA Saathi are free to download
+                                    and use. We don't have premium tiers, subscriptions, or hidden costs. Our goal is to
+                                    help the CA community, not to make profit.</p>
+                            </div>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary class="faq-question">Can I use these tools commercially/professionally?</summary>
+                            <div class="faq-answer">
+                                <p><strong>Yes.</strong> You are free to use CA Saathi tools for:</p>
+                                <ul>
+                                    <li>Personal study and practice</li>
+                                    <li>Articleship work</li>
+                                    <li>Professional CA practice</li>
+                                    <li>Any legitimate business purpose</li>
+                                </ul>
+                                <p>However, please check individual tool licenses on GitHub for specific terms. Most
+                                    tools use permissive open-source licenses.</p>
+                            </div>
+                        </details>
+                    </div>
+                </section>
+
+                <!-- Liability Section -->
+                <section class="faq-section">
+                    <h2 class="faq-section-title">
+                        <svg class="faq-section-icon warning" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                        </svg>
+                        Liability & Disclaimers
+                    </h2>
+
+                    <div class="faq-accordion">
+                        <details class="faq-item">
+                            <summary class="faq-question">Is the developer responsible for any errors or issues?
+                            </summary>
+                            <div class="faq-answer">
+                                <p><strong>No.</strong> All tools are provided "as is" without warranty of any kind. The
+                                    developers of CA Saathi:</p>
+                                <ul>
+                                    <li>Are not liable for any damages arising from your use of the tools</li>
+                                    <li>Do not guarantee the accuracy or completeness of any analysis</li>
+                                    <li>Are not responsible for any decisions made based on tool outputs</li>
+                                </ul>
+                                <p>You use these tools at your own risk and should always verify important results
+                                    independently.</p>
+                            </div>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary class="faq-question">What if a tool produces incorrect results?</summary>
+                            <div class="faq-answer">
+                                <p>While we strive for accuracy, software can have bugs. If you encounter incorrect
+                                    results:</p>
+                                <ul>
+                                    <li><strong>Always verify critical calculations manually</strong></li>
+                                    <li>Report the issue via our <a href="./community.html">Community Hub</a></li>
+                                    <li>Check for updates that might fix the issue</li>
+                                </ul>
+                                <p>Remember: these tools are meant to <strong>assist</strong> your work, not replace
+                                    your professional judgment.</p>
+                            </div>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary class="faq-question">Are there any warranties on the tools?</summary>
+                            <div class="faq-answer">
+                                <p><strong>No warranties.</strong> The tools are provided without any express or implied
+                                    warranties, including but not limited to:</p>
+                                <ul>
+                                    <li>Warranties of merchantability</li>
+                                    <li>Fitness for a particular purpose</li>
+                                    <li>Non-infringement</li>
+                                </ul>
+                                <p>This is standard for open-source software and protects volunteer developers who
+                                    contribute their time freely.</p>
+                            </div>
+                        </details>
+                    </div>
+                </section>
+
+                <!-- Privacy Section -->
+                <section class="faq-section">
+                    <h2 class="faq-section-title">
+                        <svg class="faq-section-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                        </svg>
+                        Privacy & Data
+                    </h2>
+
+                    <div class="faq-accordion">
+                        <details class="faq-item">
+                            <summary class="faq-question">Does CA Saathi collect my data?</summary>
+                            <div class="faq-answer">
+                                <p><strong>No.</strong> We do not collect, store, or transmit any of your data. Our
+                                    tools:</p>
+                                <ul>
+                                    <li>Work entirely offline</li>
+                                    <li>Don't have analytics or tracking</li>
+                                    <li>Don't require account creation</li>
+                                    <li>Don't phone home to any server</li>
+                                </ul>
+                                <p>Learn more on our <a href="./privacy.html">Privacy Policy</a> page.</p>
+                            </div>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary class="faq-question">Is my client data safe when using these tools?</summary>
+                            <div class="faq-answer">
+                                <p><strong>Yes.</strong> Since all processing happens locally on your computer:</p>
+                                <ul>
+                                    <li>Your client data never leaves your machine</li>
+                                    <li>No internet connection means no data transmission</li>
+                                    <li>You maintain complete control over your files</li>
+                                </ul>
+                                <p>This makes our tools suitable for handling sensitive financial and client
+                                    information.</p>
+                            </div>
+                        </details>
+                    </div>
+                </section>
+
+                <!-- Support Section -->
+                <section class="faq-section">
+                    <h2 class="faq-section-title">
+                        <svg class="faq-section-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
+                        </svg>
+                        Support
+                    </h2>
+
+                    <div class="faq-accordion">
+                        <details class="faq-item">
+                            <summary class="faq-question">How can I report a bug or suggest a feature?</summary>
+                            <div class="faq-answer">
+                                <p>We love hearing from the community! You can:</p>
+                                <ul>
+                                    <li>Submit feedback via our <a href="./community.html">Community Hub</a></li>
+                                    <li>Email us at <a href="mailto:casaathi01@gmail.com">casaathi01@gmail.com</a></li>
+                                    <li>Open an issue on the tool's GitHub repository</li>
+                                </ul>
+                                <p>We read every submission and try to respond within 48 hours.</p>
+                            </div>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary class="faq-question">Is there any support or help available?</summary>
+                            <div class="faq-answer">
+                                <p>As a volunteer-driven project, we provide support on a best-effort basis:</p>
+                                <ul>
+                                    <li><strong>This FAQ</strong> covers most common questions</li>
+                                    <li><strong>Community Hub</strong> for reporting issues</li>
+                                    <li><strong>GitHub Issues</strong> for technical problems</li>
+                                    <li><strong>Email</strong> for general inquiries</li>
+                                </ul>
+                                <p>We don't offer phone support or guaranteed response times, but we do our best to help
+                                    everyone.</p>
+                            </div>
+                        </details>
+                    </div>
+                </section>
+
+                <!-- Still have questions -->
+                <section class="contact-card">
+                    <h2 class="contact-card-title">Still Have Questions?</h2>
+                    <p class="contact-email">
+                        <svg class="contact-email-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                        casaathi01@gmail.com
+                    </p>
+                    <p class="contact-description">
+                        Can't find what you're looking for? Reach out to us directly or visit the
+                        <a href="./community.html">Community Hub</a> to submit your question.
+                    </p>
+                </section>
+
+                <!-- Footer -->
+                <footer class="page-footer">
+                    <p class="footer-text">CA Saathi — Built with care for the CA community</p>
+                    <nav class="footer-links" aria-label="Footer navigation">
+                        <a href="../index.html" class="footer-link">Home</a>
+                        <a href="./privacy.html" class="footer-link">Privacy Policy</a>
+                        <a href="./community.html" class="footer-link">Community Hub</a>
+                    </nav>
+                    <p class="footer-license">
+                        <strong>Disclaimer:</strong> All tools are provided "as is" without warranty of any kind. The
+                        developer is not liable for any damages or losses arising from the use of these tools. Users are
+                        responsible for verifying all outputs independently. By using CA Saathi, you agree to these
+                        terms.
+                    </p>
+                </footer>
+
+            </div>
+        </main>
+
+    </div>
+
+    <!-- JavaScript -->
+    <script src="../assets/js/app.js"></script>
+</body>
+
+</html>
