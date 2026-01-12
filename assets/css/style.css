@@ -618,6 +618,80 @@ ol {
   flex-wrap: wrap;
 }
 
+/* Hero Badge - Premium Branding */
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  background: linear-gradient(135deg, rgba(27, 166, 166, 0.12), rgba(201, 179, 126, 0.08));
+  border: 1px solid rgba(27, 166, 166, 0.25);
+  border-radius: 50px;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-primary);
+  letter-spacing: 0.02em;
+  animation: badgeGlow 3s ease-in-out infinite;
+}
+
+.hero-badge-icon {
+  width: 18px;
+  height: 18px;
+  color: var(--color-gold);
+}
+
+@keyframes badgeGlow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 rgba(27, 166, 166, 0);
+  }
+
+  50% {
+    box-shadow: 0 0 20px rgba(27, 166, 166, 0.15);
+  }
+}
+
+/* Hero Tagline */
+.hero-tagline {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+  font-weight: 500;
+  margin-bottom: var(--spacing-md);
+  font-style: italic;
+}
+
+/* Hero Highlights */
+.hero-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+}
+
+.hero-highlight-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--color-text-secondary);
+}
+
+.hero-highlight-item svg {
+  width: 18px;
+  height: 18px;
+  color: var(--color-success);
+  flex-shrink: 0;
+}
+
+/* Dark Theme Adjustments for Hero Badge */
+.theme-dark .hero-badge {
+  background: linear-gradient(135deg, rgba(27, 166, 166, 0.15), rgba(201, 179, 126, 0.1));
+  border-color: rgba(27, 166, 166, 0.3);
+}
+
 /* Tool Cards Grid */
 .tools-grid {
   display: grid;
