@@ -22,5 +22,13 @@
     "version": "1.0.0",
     "downloadUrl": "https://github.com/ca-saathi/26as-analyzer/releases/latest",
     "category": "audit"
+  },
+  {
+    "id": "lease-wizard",
+    "name": "LeaseWizard",
+    "description": "Professional lease calculator for CAs and finance teams. Compute Lease Liability & ROU Asset values as per Ind AS 116 with detailed amortisation schedules and Excel/PDF export. Works 100% offline.",
+    "version": "1.0.0",
+    "downloadUrl": "https://github.com/sidcodes-python/LeaseWizard/releases/download/v1.0.0/LeaseWizard.exe",
+    "category": "audit"
   }
 ]
