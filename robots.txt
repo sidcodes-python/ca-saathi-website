@@ -1,0 +1,9 @@
+# CA Saathi Robots.txt
+# https://casaathi.co.in
+
+# Allow all crawlers to access all content
+User-agent: *
+Allow: /
+
+# Sitemap location for search engines
+Sitemap: https://casaathi.co.in/sitemap.xml
