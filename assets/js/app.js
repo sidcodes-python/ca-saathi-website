@@ -63,10 +63,16 @@
     const theme = getPreferredTheme();
     applyTheme(theme);
 
-    // Listen for theme toggle clicks
+    // Listen for theme toggle clicks (desktop)
     const themeToggle = document.getElementById('themeToggle');
     if (themeToggle) {
       themeToggle.addEventListener('click', toggleTheme);
+    }
+
+    // Listen for mobile theme toggle clicks
+    const mobileThemeToggle = document.getElementById('mobileThemeToggle');
+    if (mobileThemeToggle) {
+      mobileThemeToggle.addEventListener('click', toggleTheme);
     }
 
     // Listen for OS theme changes (only if user hasn't set preference)

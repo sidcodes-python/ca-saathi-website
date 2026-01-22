@@ -249,10 +249,10 @@ ol {
 .sidebar-header {
   padding: var(--spacing-md) var(--spacing-lg);
   border-bottom: 1px solid var(--color-sidebar-border);
-  text-align: left;
+  text-align: center;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .sidebar-logo {
@@ -342,6 +342,57 @@ ol {
 
 .theme-dark .theme-toggle .moon-icon {
   display: none;
+}
+
+/* Mobile Theme Toggle Button */
+.mobile-theme-toggle {
+  position: absolute;
+  right: var(--spacing-md);
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: var(--spacing-sm);
+  border-radius: var(--radius-md);
+  color: var(--color-text-primary);
+  transition: background-color var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+}
+
+.mobile-theme-toggle:hover {
+  background-color: var(--color-border-light);
+}
+
+.mobile-theme-toggle svg {
+  width: 22px;
+  height: 22px;
+}
+
+.mobile-theme-toggle .sun-icon {
+  display: none;
+}
+
+.mobile-theme-toggle .moon-icon {
+  display: block;
+}
+
+.theme-dark .mobile-theme-toggle .sun-icon {
+  display: block;
+}
+
+.theme-dark .mobile-theme-toggle .moon-icon {
+  display: none;
+}
+
+/* Mobile Header Spacer (balances the hamburger menu on the other side) */
+.mobile-header-spacer {
+  width: 40px;
+  height: 40px;
 }
 
 /* Navigation */
@@ -1729,6 +1780,8 @@ ol {
     height: 160px;
     width: auto;
     max-width: 100%;
+    margin-left: 40px;
+    /* Shift right to visually center against hamburger menu */
   }
 
   .sidebar {
