@@ -21,22 +21,18 @@
 
   /**
    * Get the user's preferred theme
-   * Priority: 1. localStorage, 2. OS preference, 3. light (default)
+   * Priority: 1. localStorage only, 2. light (default)
+   * Note: OS preference is ignored to ensure consistent light-first experience
    * @returns {string} 'light' or 'dark'
    */
   function getPreferredTheme() {
-    // Check localStorage first
+    // Check localStorage first - only use stored preference
     const storedTheme = localStorage.getItem(THEME_STORAGE_KEY);
     if (storedTheme) {
       return storedTheme;
     }
 
-    // Check OS preference
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      return 'dark';
-    }
-
-    // Default to light
+    // Default to light (ignore OS preference for consistent experience)
     return 'light';
   }
 
