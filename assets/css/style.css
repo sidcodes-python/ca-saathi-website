@@ -1719,9 +1719,9 @@ ol {
     display: flex;
   }
 
-  /* Mobile Header Logo - Smaller for header bar */
+  /* Mobile Header Logo */
   .mobile-logo-img {
-    height: 40px;
+    height: 160px;
     width: auto;
     max-width: 100%;
   }
@@ -1744,125 +1744,205 @@ ol {
   }
 
   .main-inner {
-    padding: var(--spacing-lg);
+    padding: var(--spacing-md);
+  }
+
+  /* ========================================
+     PREMIUM MOBILE HERO - App-Like Design
+     ======================================== */
+
+  /* Hide page header on mobile - hero serves this purpose */
+  .page-header {
+    display: none;
   }
 
   .page-title {
-    font-size: var(--font-size-2xl);
+    font-size: var(--font-size-xl);
   }
 
   .page-subtitle {
-    font-size: var(--font-size-base);
+    font-size: var(--font-size-sm);
   }
 
-  /* Hero Section Mobile Optimization */
+  /* Hero Section - Full screen feel, minimal clutter */
   .hero-section {
-    padding: var(--spacing-md);
+    padding: 0;
     margin-bottom: var(--spacing-lg);
+    background: transparent;
+    border-radius: 0;
   }
 
   .hero-inner {
-    padding: var(--spacing-lg);
+    padding: var(--spacing-xl) var(--spacing-md);
+    text-align: center;
+    border-radius: var(--radius-lg);
   }
 
+  /* Badge - Sleek and prominent */
   .hero-badge {
-    font-size: var(--font-size-xs);
+    font-size: 11px;
     padding: var(--spacing-xs) var(--spacing-md);
-    flex-wrap: wrap;
-    text-align: center;
-    justify-content: center;
+    margin-bottom: var(--spacing-lg);
+    display: inline-flex;
+    background: linear-gradient(135deg, rgba(27, 166, 166, 0.15), rgba(201, 179, 126, 0.1));
   }
 
   .hero-badge-icon {
-    width: 16px;
-    height: 16px;
+    width: 14px;
+    height: 14px;
   }
 
+  /* Title - Bold and clear */
   .hero-title {
-    font-size: var(--font-size-xl);
-    line-height: 1.3;
+    font-size: var(--font-size-2xl);
+    line-height: 1.2;
+    margin-bottom: var(--spacing-sm);
   }
 
-  .hero-tagline {
-    font-size: var(--font-size-base);
-  }
-
+  /* Hide verbose text on mobile */
+  .hero-tagline,
+  .hero-divider,
   .hero-description {
-    font-size: var(--font-size-sm);
-    line-height: 1.6;
+    display: none;
   }
 
-  .hero-divider {
-    width: 40px;
-    margin-bottom: var(--spacing-md);
-  }
-
+  /* Highlights - Horizontal compact pills */
   .hero-highlights {
-    flex-direction: column;
-    gap: var(--spacing-sm);
-    margin-bottom: var(--spacing-lg);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-xl);
+    margin-top: var(--spacing-md);
   }
 
   .hero-highlight-item {
-    font-size: var(--font-size-xs);
+    font-size: 10px;
+    background: var(--color-bg-alt);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: 20px;
+    gap: 4px;
   }
 
+  .hero-highlight-item svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  /* Single prominent CTA */
   .hero-actions {
     flex-direction: column;
     gap: var(--spacing-sm);
   }
 
-  /* Video Section Mobile */
+  /* Hide secondary button on mobile */
+  .hero-actions .btn-outline {
+    display: none;
+  }
+
+  .hero-actions .btn-primary {
+    width: 100%;
+    padding: var(--spacing-md) var(--spacing-xl);
+    font-size: var(--font-size-base);
+    font-weight: 600;
+  }
+
+  /* ========================================
+     VIDEO SECTION - Compact
+     ======================================== */
   .video-section {
-    padding: var(--spacing-lg);
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
   }
 
   .video-section-title {
-    font-size: var(--font-size-lg);
+    font-size: var(--font-size-base);
+    margin-bottom: var(--spacing-xs);
   }
 
-  /* Tools Grid */
+  .video-section-subtitle {
+    font-size: var(--font-size-xs);
+    margin-bottom: var(--spacing-md);
+  }
+
+  /* ========================================
+     TOOLS GRID - Clean Cards
+     ======================================== */
   .tools-grid {
     grid-template-columns: 1fr;
-    gap: var(--spacing-md);
-  }
-
-  /* Form Container */
-  .form-container {
-    padding: var(--spacing-lg);
-  }
-
-  /* Footer Mobile Optimization */
-  .footer-links {
-    flex-direction: column;
-    gap: var(--spacing-md);
-    align-items: center;
-  }
-
-  .footer-link {
-    padding: var(--spacing-sm) var(--spacing-md);
-    display: inline-block;
-  }
-
-  .footer-text {
-    font-size: var(--font-size-sm);
-  }
-
-  .footer-license {
-    font-size: var(--font-size-xs);
-    padding: var(--spacing-sm);
-    text-align: left;
-  }
-
-  /* Info Box Mobile */
-  .info-box {
-    flex-direction: column;
-    text-align: center;
     gap: var(--spacing-sm);
   }
 
+  .tool-card {
+    padding: var(--spacing-md);
+  }
+
+  .tool-card-title {
+    font-size: var(--font-size-base);
+  }
+
+  .tool-card-description {
+    font-size: var(--font-size-xs);
+    line-height: 1.5;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .tool-card-footer {
+    padding-top: var(--spacing-sm);
+  }
+
+  .tool-card-footer .btn {
+    padding: var(--spacing-xs) var(--spacing-md);
+    font-size: var(--font-size-xs);
+  }
+
+  /* ========================================
+     FORM & INFO BOX - Compact
+     ======================================== */
+  .form-container {
+    padding: var(--spacing-md);
+  }
+
+  .info-box {
+    padding: var(--spacing-md);
+    font-size: var(--font-size-xs);
+  }
+
   .info-box-icon {
-    margin: 0 auto;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+  }
+
+  /* ========================================
+     FOOTER - Minimal
+     ======================================== */
+  .page-footer {
+    padding: var(--spacing-lg) var(--spacing-md);
+    text-align: center;
+  }
+
+  .footer-text {
+    font-size: var(--font-size-xs);
+  }
+
+  .footer-links {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-md);
+  }
+
+  .footer-link {
+    font-size: var(--font-size-xs);
+    padding: var(--spacing-xs);
+  }
+
+  .footer-license {
+    font-size: 10px;
+    padding: var(--spacing-sm) 0;
+    color: var(--color-text-muted);
   }
 }
 
