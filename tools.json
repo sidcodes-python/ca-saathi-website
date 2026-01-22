@@ -16,12 +16,12 @@
     "category": "compliance"
   },
   {
-    "id": "26as-analyzer",
-    "name": "26AS Analyzer",
-    "description": "Reads and analyzes .txt 26AS files downloaded from TRACES. Generates clean, structured reports for TDS reconciliation and tax credit verification.",
+    "id": "saathi-26as-analysis-suite",
+    "name": "Saathi 26AS Analysis Suite",
+    "description": "Reconcile Form 26AS with client ledger and analyse the entire 26AS in seconds. Privacy-first, offline tool that flags TDS mismatches, compliance issues, and generates structured Excel audit reports.",
     "version": "1.0.0",
-    "downloadUrl": "https://github.com/ca-saathi/26as-analyzer/releases/latest",
-    "category": "audit"
+    "downloadUrl": "https://github.com/sidcodes-python/Saathi-26AS-Analysis-Suite/releases/download/v1.0.0/Saathi.26AS.Analysis.Suite.exe",
+    "category": "tax"
   },
   {
     "id": "lease-wizard",
