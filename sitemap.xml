@@ -27,6 +27,13 @@
     <priority>0.9</priority>
   </url>
 
+  <url>
+    <loc>https://casaathi.co.in/pages/audit-lifecycle.html</loc>
+    <lastmod>2026-01-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Community Pages -->
   <url>
     <loc>https://casaathi.co.in/pages/community.html</loc>
