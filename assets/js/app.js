@@ -602,6 +602,20 @@
       dateElement: 'saathi-26as-date',
       downloadsElement: 'saathi-26as-downloads',
       statsContainer: 'saathi-26as-stats'
+    },
+    'lease-wizard': {
+      repo: 'sidcodes-python/LeaseWizard',
+      versionElement: 'lease-wizard-version',
+      dateElement: 'lease-wizard-date',
+      downloadsElement: 'lease-wizard-downloads',
+      statsContainer: 'lease-wizard-stats'
+    },
+    'file-saathi': {
+      repo: 'sidcodes-python/file-saathi',
+      versionElement: 'file-saathi-version',
+      dateElement: 'file-saathi-date',
+      downloadsElement: 'file-saathi-downloads',
+      statsContainer: 'file-saathi-stats'
     }
   };
 
