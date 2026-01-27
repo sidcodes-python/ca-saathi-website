@@ -587,6 +587,169 @@
     // The website now uses standard browser navigation which is more reliable
     console.log('SPA Router disabled - using standard navigation');
   }
+  // ============================================
+  // GitHub Release Stats (Privacy-First)
+  // ============================================
+
+  /**
+   * Configuration for tools with GitHub Release stats
+   * Maps tool IDs to their repository info
+   */
+  const GITHUB_RELEASE_TOOLS = {
+    'saathi-26as': {
+      repo: 'sidcodes-python/Saathi-26AS-Analysis-Suite',
+      versionElement: 'saathi-26as-version',
+      dateElement: 'saathi-26as-date',
+      downloadsElement: 'saathi-26as-downloads',
+      statsContainer: 'saathi-26as-stats'
+    }
+  };
+
+  /**
+   * Format a date string to human-readable format
+   * @param {string} dateStr - ISO date string
+   * @returns {string} Formatted date (e.g., "Jan 22, 2026")
+   */
+  function formatReleaseDate(dateStr) {
+    try {
+      const date = new Date(dateStr);
+      return date.toLocaleDateString('en-US', {
+        month: 'short',
+        day: 'numeric',
+        year: 'numeric'
+      });
+    } catch {
+      return '—';
+    }
+  }
+
+  /**
+   * Format download count with appropriate suffix
+   * @param {number} count - Download count
+   * @returns {string} Formatted count (e.g., "1.2k")
+   */
+  function formatDownloadCount(count) {
+    if (count >= 1000000) {
+      return (count / 1000000).toFixed(1) + 'M';
+    } else if (count >= 1000) {
+      return (count / 1000).toFixed(1) + 'k';
+    }
+    return count.toString();
+  }
+
+  /**
+   * Fetch GitHub release data for a tool
+   * Uses unauthenticated public API (60 requests/hour limit)
+   * @param {string} repo - Repository in format "owner/repo"
+   * @returns {Promise<Object|null>} Release data or null on failure
+   */
+  async function fetchGitHubRelease(repo) {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 5000); // 5s timeout
+
+    try {
+      const response = await fetch(
+        `https://api.github.com/repos/${repo}/releases/latest`,
+        {
+          signal: controller.signal,
+          headers: {
+            'Accept': 'application/vnd.github.v3+json'
+          }
+        }
+      );
+
+      clearTimeout(timeoutId);
+
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}`);
+      }
+
+      const data = await response.json();
+
+      // Calculate total .exe downloads from assets
+      let totalDownloads = 0;
+      if (data.assets && Array.isArray(data.assets)) {
+        totalDownloads = data.assets
+          .filter(asset => asset.name.endsWith('.exe'))
+          .reduce((sum, asset) => sum + (asset.download_count || 0), 0);
+      }
+
+      return {
+        version: data.tag_name || null,
+        publishedAt: data.published_at || null,
+        downloadCount: totalDownloads
+      };
+    } catch (error) {
+      clearTimeout(timeoutId);
+      console.warn('GitHub release fetch failed:', error.message);
+      return null;
+    }
+  }
+
+  /**
+   * Update DOM elements with release data
+   * @param {Object} config - Tool configuration from GITHUB_RELEASE_TOOLS
+   * @param {Object} data - Release data from GitHub API
+   */
+  function updateReleaseUI(config, data) {
+    const versionEl = document.getElementById(config.versionElement);
+    const dateEl = document.getElementById(config.dateElement);
+    const downloadsEl = document.getElementById(config.downloadsElement);
+    const statsEl = document.getElementById(config.statsContainer);
+
+    if (versionEl && data.version) {
+      versionEl.textContent = `Version ${data.version.replace(/^v/, '')}`;
+      versionEl.classList.add('has-update');
+    }
+
+    if (dateEl && data.publishedAt) {
+      dateEl.textContent = formatReleaseDate(data.publishedAt);
+    }
+
+    if (downloadsEl) {
+      downloadsEl.textContent = `${formatDownloadCount(data.downloadCount)} downloads`;
+    }
+
+    // Show stats container
+    if (statsEl) {
+      statsEl.style.display = 'flex';
+    }
+  }
+
+  /**
+   * Hide release stats UI on failure
+   * @param {Object} config - Tool configuration
+   */
+  function hideReleaseUI(config) {
+    const statsEl = document.getElementById(config.statsContainer);
+    if (statsEl) {
+      statsEl.style.display = 'none';
+    }
+  }
+
+  /**
+   * Initialize GitHub release stats for all configured tools
+   * Runs after DOM is ready, fails gracefully
+   */
+  async function initializeGitHubStats() {
+    for (const [toolId, config] of Object.entries(GITHUB_RELEASE_TOOLS)) {
+      // Check if the tool card exists on this page
+      const statsEl = document.getElementById(config.statsContainer);
+      if (!statsEl) continue;
+
+      try {
+        const data = await fetchGitHubRelease(config.repo);
+        if (data) {
+          updateReleaseUI(config, data);
+        } else {
+          hideReleaseUI(config);
+        }
+      } catch (error) {
+        console.warn(`Failed to load stats for ${toolId}:`, error);
+        hideReleaseUI(config);
+      }
+    }
+  }
 
   // ============================================
   // Initialization
@@ -611,6 +774,9 @@
 
     // Initialize SPA router for smooth navigation
     initializeSPARouter();
+
+    // Initialize GitHub release stats (async, non-blocking)
+    initializeGitHubStats();
 
     console.log('CA Saathi initialized successfully');
   }

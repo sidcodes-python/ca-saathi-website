@@ -814,6 +814,103 @@ ol {
   color: var(--color-text-muted);
 }
 
+/* Release Stats - GitHub API Data Display */
+.tool-release-stats {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+}
+
+.tool-stat-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  cursor: default;
+}
+
+.tool-stat-item svg {
+  width: 14px;
+  height: 14px;
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+}
+
+.tool-stat-item:hover {
+  color: var(--color-text-secondary);
+}
+
+.tool-stat-item:hover svg {
+  color: var(--color-primary);
+}
+
+/* Loading shimmer for async data */
+.tool-stat-loading {
+  display: inline-block;
+  width: 40px;
+  height: 12px;
+  background: linear-gradient(90deg,
+      var(--color-border-light) 25%,
+      var(--color-border) 50%,
+      var(--color-border-light) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 4px;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Version badge styling with update indicator */
+.tool-card-version.has-update {
+  background-color: rgba(27, 166, 166, 0.1);
+  color: var(--color-primary);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+}
+
+/* Responsive adjustments for tool card footer with stats */
+.tool-card-footer.has-stats {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
+}
+
+.tool-card-footer.has-stats .btn {
+  margin-top: var(--spacing-xs);
+  align-self: flex-end;
+}
+
+@media (min-width: 480px) {
+  .tool-card-footer.has-stats {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .tool-card-footer.has-stats .btn {
+    margin-top: 0;
+  }
+}
+
+/* Tool card meta container (version + stats) */
+.tool-card-meta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
 /* ============================================
    Video Introduction Section
    ============================================ */
