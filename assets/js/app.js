@@ -594,6 +594,7 @@
   /**
    * Configuration for tools with GitHub Release stats
    * Maps tool IDs to their repository info
+   * Set aggregateDownloads: true to sum downloads from ALL releases
    */
   const GITHUB_RELEASE_TOOLS = {
     'saathi-26as': {
@@ -615,7 +616,8 @@
       versionElement: 'file-saathi-version',
       dateElement: 'file-saathi-date',
       downloadsElement: 'file-saathi-downloads',
-      statsContainer: 'file-saathi-stats'
+      statsContainer: 'file-saathi-stats',
+      aggregateDownloads: true // Sum downloads from all releases
     }
   };
 
@@ -652,7 +654,7 @@
   }
 
   /**
-   * Fetch GitHub release data for a tool
+   * Fetch GitHub release data for a tool (latest release only)
    * Uses unauthenticated public API (60 requests/hour limit)
    * @param {string} repo - Repository in format "owner/repo"
    * @returns {Promise<Object|null>} Release data or null on failure
@@ -701,6 +703,64 @@
   }
 
   /**
+   * Fetch ALL GitHub releases and aggregate download counts
+   * Version and date come from the latest release only
+   * @param {string} repo - Repository in format "owner/repo"
+   * @returns {Promise<Object|null>} Aggregated release data or null on failure
+   */
+  async function fetchAllGitHubReleases(repo) {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 8000); // 8s timeout for larger response
+
+    try {
+      const response = await fetch(
+        `https://api.github.com/repos/${repo}/releases`,
+        {
+          signal: controller.signal,
+          headers: {
+            'Accept': 'application/vnd.github.v3+json'
+          }
+        }
+      );
+
+      clearTimeout(timeoutId);
+
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}`);
+      }
+
+      const releases = await response.json();
+
+      if (!Array.isArray(releases) || releases.length === 0) {
+        return null;
+      }
+
+      // Get version and date from latest release (first in array)
+      const latestRelease = releases[0];
+
+      // Aggregate downloads from ALL releases
+      let totalDownloads = 0;
+      for (const release of releases) {
+        if (release.assets && Array.isArray(release.assets)) {
+          totalDownloads += release.assets
+            .filter(asset => asset.name.endsWith('.exe'))
+            .reduce((sum, asset) => sum + (asset.download_count || 0), 0);
+        }
+      }
+
+      return {
+        version: latestRelease.tag_name || null,
+        publishedAt: latestRelease.published_at || null,
+        downloadCount: totalDownloads
+      };
+    } catch (error) {
+      clearTimeout(timeoutId);
+      console.warn('GitHub all releases fetch failed:', error.message);
+      return null;
+    }
+  }
+
+  /**
    * Update DOM elements with release data
    * @param {Object} config - Tool configuration from GITHUB_RELEASE_TOOLS
    * @param {Object} data - Release data from GitHub API
@@ -744,6 +804,7 @@
   /**
    * Initialize GitHub release stats for all configured tools
    * Runs after DOM is ready, fails gracefully
+   * Uses aggregated downloads for tools with aggregateDownloads: true
    */
   async function initializeGitHubStats() {
     for (const [toolId, config] of Object.entries(GITHUB_RELEASE_TOOLS)) {
@@ -752,7 +813,11 @@
       if (!statsEl) continue;
 
       try {
-        const data = await fetchGitHubRelease(config.repo);
+        // Use aggregated fetch if configured, otherwise use single release fetch
+        const data = config.aggregateDownloads
+          ? await fetchAllGitHubReleases(config.repo)
+          : await fetchGitHubRelease(config.repo);
+
         if (data) {
           updateReleaseUI(config, data);
         } else {
