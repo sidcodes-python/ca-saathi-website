@@ -32,6 +32,20 @@
 
 <body class="theme-light">
     <div class="app-container">
+        <!-- Mobile Header -->
+        <header class="mobile-header">
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu">
+                <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+            <img src="../assets/images/logo-full.png" alt="CA Saathi" class="mobile-logo-img">
+            <div class="mobile-header-spacer"></div>
+        </header>
+
+        <!-- Sidebar Overlay (mobile) -->
+        <div class="sidebar-overlay" id="sidebarOverlay" aria-hidden="true"></div>
+
         <!-- Sidebar -->
         <aside class="sidebar" id="sidebar">
             <div class="sidebar-header">
@@ -172,7 +186,8 @@
                     <!-- Siddharth Agarwal -->
                     <article class="contributor-card" id="siddharth-agarwal" data-name="Siddharth Agarwal">
                         <div class="contributor-header">
-                            <div class="contributor-photo-placeholder">SA</div>
+                            <img src="../assets/images/siddharth-agarwal.jpg" alt="Siddharth Agarwal"
+                                class="contributor-photo">
                             <div class="contributor-info">
                                 <h2 class="contributor-name">Siddharth Agarwal</h2>
                                 <p class="contributor-role">Founder & Lead Developer</p>
