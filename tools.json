@@ -1,13 +1,5 @@
 [
   {
-    "id": "privacy-shield",
-    "name": "Privacy Shield",
-    "description": "Secure document redaction tool for sensitive client data. Automatically identifies and masks PAN, Aadhaar, and other confidential information in PDFs.",
-    "version": "1.2.0",
-    "downloadUrl": "https://github.com/ca-saathi/privacy-shield/releases/latest/download/Privacy-Shield.exe",
-    "category": "compliance"
-  },
-  {
     "id": "file-saathi",
     "name": "File Saathi",
     "description": "Offline PDF manipulation tool for merge, split, protect, unlock, and audit-safe document handling. All processing happens locally on your machine.",
