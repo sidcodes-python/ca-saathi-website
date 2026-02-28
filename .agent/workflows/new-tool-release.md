@@ -14,7 +14,7 @@ Copy and fill out this template, then share it with me to add the tool to the we
 ```
 Tool Name: 
 Version: 
-Category: [Compliance / Audit / Tax]
+Category: [Compliance / Audit / Tax / Exams]
 ```
 
 ### 2. Download URL

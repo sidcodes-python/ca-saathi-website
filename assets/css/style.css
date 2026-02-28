@@ -794,6 +794,11 @@ ol {
   color: var(--color-primary);
 }
 
+.tool-card-category.exams {
+  background-color: rgba(245, 158, 11, 0.12);
+  color: #d97706;
+}
+
 .tool-card-description {
   font-size: var(--font-size-sm);
   color: var(--color-text-secondary);

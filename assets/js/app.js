@@ -618,6 +618,13 @@
       downloadsElement: 'file-saathi-downloads',
       statsContainer: 'file-saathi-stats',
       aggregateDownloads: true // Sum downloads from all releases
+    },
+    'revisio': {
+      repo: 'sidcodes-python/Revisio',
+      versionElement: 'revisio-version',
+      dateElement: 'revisio-date',
+      downloadsElement: 'revisio-downloads',
+      statsContainer: 'revisio-stats'
     }
   };
 

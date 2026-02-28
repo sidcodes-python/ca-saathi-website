@@ -22,5 +22,13 @@
     "version": "1.0.0",
     "downloadUrl": "https://github.com/sidcodes-python/LeaseWizard/releases/download/v1.0.0/LeaseWizard.exe",
     "category": "audit"
+  },
+  {
+    "id": "revisio",
+    "name": "Revisio",
+    "description": "Fully offline 1-3-7-21 smart revision system for CA students. Automatically schedules revisions with ICAI-based subject mapping, exam countdown tracking, streak analytics, and weak chapter detection.",
+    "version": "1.0.0",
+    "downloadUrl": "https://github.com/sidcodes-python/Revisio/releases/download/v1.0.0/Revisio-Version-1.0.0.exe",
+    "category": "exams"
   }
 ]
